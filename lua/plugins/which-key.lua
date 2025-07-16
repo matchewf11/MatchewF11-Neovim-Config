@@ -1,3 +1,4 @@
+-- preview cmds before they happen
 return {
   "folke/which-key.nvim",
   event = "VeryLazy",
