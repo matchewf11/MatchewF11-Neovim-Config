@@ -1,6 +1,7 @@
 require 'config.lazy'
 
 require 'config.options'
--- do other stuff here
+require 'config.keymaps'
+require 'config.autocmds'
 
 require 'config.plugins'
