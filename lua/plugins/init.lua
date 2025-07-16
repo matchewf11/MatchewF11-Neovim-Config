@@ -1,23 +1,8 @@
-return {
-	require 'plugins.oil',
-}
+return {}
 
 
--- -- [[ Configure and install plugins ]]
--- --
--- --  To check the current status of your plugins, run
--- --    :Lazy
--- --
--- --  You can press `?` in this menu for help. Use `:q` to close the window
--- --
--- --  To update plugins you can run
--- --    :Lazy update
--- --
--- -- NOTE: Here is where you install your plugins.
--- require('lazy').setup({
---   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
 --   'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
---
+
 --   -- NOTE: Plugins can also be added by using a table,
 --   -- with the first argument being the link and the following
 --   -- keys can be used to configure plugin behavior/loading/etc.
@@ -67,58 +52,6 @@ return {
 --   -- Then, because we use the `opts` key (recommended), the configuration runs
 --   -- after the plugin has been loaded as `require(MODULE).setup(opts)`.
 --
---   { -- Useful plugin to show you pending keybinds.
---     'folke/which-key.nvim',
---     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
---     opts = {
---       -- delay between pressing a key and opening which-key (milliseconds)
---       -- this setting is independent of vim.o.timeoutlen
---       delay = 0,
---       icons = {
---         -- set icon mappings to true if you have a Nerd Font
---         mappings = vim.g.have_nerd_font,
---         -- If you are using a Nerd Font: set icons.keys to an empty table which will use the
---         -- default which-key.nvim defined Nerd Font icons, otherwise define a string table
---         keys = vim.g.have_nerd_font and {} or {
---           Up = '<Up> ',
---           Down = '<Down> ',
---           Left = '<Left> ',
---           Right = '<Right> ',
---           C = '<C-…> ',
---           M = '<M-…> ',
---           D = '<D-…> ',
---           S = '<S-…> ',
---           CR = '<CR> ',
---           Esc = '<Esc> ',
---           ScrollWheelDown = '<ScrollWheelDown> ',
---           ScrollWheelUp = '<ScrollWheelUp> ',
---           NL = '<NL> ',
---           BS = '<BS> ',
---           Space = '<Space> ',
---           Tab = '<Tab> ',
---           F1 = '<F1>',
---           F2 = '<F2>',
---           F3 = '<F3>',
---           F4 = '<F4>',
---           F5 = '<F5>',
---           F6 = '<F6>',
---           F7 = '<F7>',
---           F8 = '<F8>',
---           F9 = '<F9>',
---           F10 = '<F10>',
---           F11 = '<F11>',
---           F12 = '<F12>',
---         },
---       },
---
---       -- Document existing key chains
---       spec = {
---         { '<leader>s', group = '[S]earch' },
---         { '<leader>t', group = '[T]oggle' },
---         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
---       },
---     },
---   },
 --
 --   -- NOTE: Plugins can specify dependencies.
 --   --
@@ -781,13 +714,11 @@ return {
 --   },
 -- })
 
--- nerdfonts and fzf
+
 -- fzf
 -- colorscheme
 -- dashbaord
 -- mini.lua
--- oil.lua
--- whichkey?
 --
 -- source %
 -- luafile %
@@ -811,3 +742,6 @@ return {
 -- fzf instead of telescope
 -- group plugins by files or dir
 -- clear status line in vim.options
+-- look thorugh config file to clean things up like keymaps and stuff
+-- get rid of this file at the end
+-- make everything lazy btw
