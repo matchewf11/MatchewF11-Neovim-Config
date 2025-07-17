@@ -1,6 +1,5 @@
 return {}
 
-
 --   -- See `:help gitsigns` to understand what the configuration keys do
 --   { -- Adds git related signs to the gutter, as well as utilities for managing changes
 --     'lewis6991/gitsigns.nvim',
@@ -15,7 +14,6 @@ return {}
 --     },
 --   },
 
---
 --   { -- Autocompletion
 --     'saghen/blink.cmp',
 --     event = 'VimEnter',
@@ -115,11 +113,11 @@ return {}
 --     },
 --   },
 
-  -- require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.indent_line',
-  -- require 'kickstart.plugins.lint',
-  -- require 'kickstart.plugins.autopairs',
-  -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+-- require 'kickstart.plugins.debug',
+-- require 'kickstart.plugins.indent_line',
+-- require 'kickstart.plugins.lint',
+-- require 'kickstart.plugins.autopairs',
+-- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
 -- }, {
 --   ui = {
