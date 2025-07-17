@@ -6,7 +6,7 @@ vim.g.maplocalleader = ' '
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.mouse = 'a'
--- vim.o.showmode = false -- don't show since status line
+vim.o.showmode = false -- don't show since status line
 
 vim.schedule(function()
   vim.o.clipboard = 'unnamedplus'
