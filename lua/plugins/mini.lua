@@ -1,7 +1,7 @@
 return {
 	'echasnovski/mini.nvim',
 	version = false,
-	event = 'BufReadPre',
+	event = 'VeryLazy',
 	config = function()
 
 		-- get rid of this and get a new statusline
