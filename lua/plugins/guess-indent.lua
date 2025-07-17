@@ -1,5 +1,6 @@
 return {
 	'NMAC427/guess-indent.nvim',
+	lazy = true,
 	event = { 'BufReadPre', 'BufNewFile' },
 	opts = {
 		filetype_exclude = {

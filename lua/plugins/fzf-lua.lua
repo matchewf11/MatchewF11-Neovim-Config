@@ -2,9 +2,10 @@
 -- CTRL j, k move selection
 -- CTRL v, s split w/ selection
 return {
-	'ibhagwan/fzf-lua',
-	dependencies = { 'nvim-tree/nvim-web-devicons' },
-	opts = {
+  'ibhagwan/fzf-lua',
+  dependencies = { 'nvim-tree/nvim-web-devicons' },
+  lazy = true,
+  opts = {
     file_icon_padding = '',
     winopts = {
       treesitter = {
@@ -30,11 +31,11 @@ return {
     },
   },
   keys = {
-    { '<leader>fb', function() require('fzf-lua').buffers() end, desc = '[f]ind [b]uffer' },
-    { '<leader>ff', function() require('fzf-lua').files() end, desc = '[f]ind [f]ile' },
-    { '<leader>fo', function() require('fzf-lua').oldfiles() end, desc = '[f]ind [o]ld files' },
-    { '<leader>fl', function() require('fzf-lua').blines() end, desc = '[f]ind [l]ines (local)' },
-    { '<leader>fL', function() require('fzf-lua').lines() end, desc = '[Ff]ind [L]ines (buffers)' },
+    { '<leader>sb', function() require('fzf-lua').buffers() end,  desc = '[s]earch [b]uffer' },
+    { '<leader>sf', function() require('fzf-lua').files() end,    desc = '[s]earch [f]ile' },
+    { '<leader>so', function() require('fzf-lua').oldfiles() end, desc = '[s]earch [o]ld files' },
+    { '<leader>sl', function() require('fzf-lua').blines() end,   desc = '[s]earch [l]ines (local)' },
+    { '<leader>sL', function() require('fzf-lua').lines() end,    desc = '[s]earch [L]ines (buffers)' },
   }
 }
 
@@ -93,7 +94,7 @@ return {
 -- menus 	menus
 -- spellcheck 	misspelled words in buffer
 -- spell_suggest 	spelling suggestions
--- packadd 	:packadd 
+-- packadd 	:packadd
 --
 -- register_ui_select 	register fzf-lua as the UI interface for vim.ui.select
 -- deregister_ui_select 	de-register fzf-lua with vim.ui.select

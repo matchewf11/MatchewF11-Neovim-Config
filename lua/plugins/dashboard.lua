@@ -49,6 +49,7 @@ end
 
 return {
   'nvimdev/dashboard-nvim',
+  lazy = true,
   event = 'VimEnter',
   config = function()
     vim.api.nvim_set_hl(0, 'DashboardHeader', { fg = '#32CD32' })

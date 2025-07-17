@@ -1,6 +1,7 @@
 -- preview cmds before they happen
 return {
 	"folke/which-key.nvim",
+	lazy = true,
 	event = "VeryLazy",
 	opts = {
 		delay = 0,
@@ -8,17 +9,17 @@ return {
 			mappings = true,
 			keys = {},
 		},
-	spec = {
-			{ '<leader>f', group = '[f]ind' },
-	},
+		spec = {
+			{ '<leader>s', group = '[s]earch' },
+		},
 	},
 	keys = {
-	-- {
-	--   "<leader>?",
-	--   function()
-	--     require("which-key").show({ global = false })
-	--   end,
-	--   desc = "Buffer Local Keymaps (which-key)",
-	-- },
+		-- {
+		--   "<leader>?",
+		--   function()
+		--     require("which-key").show({ global = false })
+		--   end,
+		--   desc = "Buffer Local Keymaps (which-key)",
+		-- },
 	},
 }
