@@ -262,3 +262,62 @@ require("lazy").setup({
 --maybe use docker tools and shell and sql and other stuff
 -- edit to make plugins better looking can i give autocmds and keymaps to the right
 -- files?
+--
+--
+--
+--
+--
+
+-- adn otehr stuff!!!!
+-- ensure_installed = {
+--   -- LSPs
+--   "gopls",         -- Go
+--   "rust_analyzer", -- Rust
+--   "lua_ls",        -- Lua
+--   "html",          -- HTML
+--   "cssls",         -- CSS
+--   "tsserver",      -- TypeScript/JavaScript
+--   "jsonls",        -- JSON
+--   "yamlls",        -- YAML
+--   "dockerls",      -- Docker
+--   "bashls",        -- Shell scripts
+--   "marksman",      -- Markdown
+--   "taplo",         -- TOML
+--   "lemminx",       -- XML
+--   "sqlls",         -- SQL
+--   "pyright",       -- Python
+--   "eslint",        -- ESLint LSP (JavaScript/TypeScript)
+--   "graphql",       -- GraphQL
+--   "vimls",         -- Vimscript
+--
+--   -- Formatters
+--   "stylua",        -- Lua
+--   "prettier",      -- Web (HTML, CSS, etc.)
+--   "shfmt",         -- Shell
+--   "goimports",     -- Go
+--   "gofumpt",       -- Go
+--   "rustfmt",       -- Rust
+--   "black",         -- Python
+--   "isort",         -- Python
+--   "sql-formatter", -- SQL
+--   "yamlfmt",       -- YAML
+--   "markdownlint",  -- Markdown
+--
+--   -- Linters
+--   "shellcheck",    -- Shell
+--   "luacheck",      -- Lua
+--   "golangci-lint", -- Go
+--   "flake8",        -- Python
+--   "eslint_d",      -- JavaScript/TypeScript
+--   "markdownlint",  -- Markdown
+--
+--   -- Debuggers (DAP)
+--   "delve",         -- Go
+--   "codelldb",      -- Rust, C/C++
+--   "debugpy",       -- Python
+--   "js-debug-adapter", -- JS/TS
+-- }
+--
+--
+--
+-- add a bunch of the default keymaps of the plugins i added to the keymap file

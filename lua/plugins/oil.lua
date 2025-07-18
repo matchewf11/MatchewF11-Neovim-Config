@@ -1,4 +1,7 @@
 -- nvim . replacement
+-- <C-p> to preview
+-- <C-s> to split
+-- <C-h> to hor split
 return {
   'stevearc/oil.nvim',
   ---@module 'oil'
@@ -7,6 +10,8 @@ return {
   dependencies = { { "echasnovski/mini.icons", opts = {} } },
   lazy = false,
 }
+
+-- add osme options to preview and open in split
 
 -- require("oil").setup({
 --   -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
