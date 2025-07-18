@@ -121,6 +121,8 @@ return {
   'neovim/nvim-lspconfig',
   lazy = true, -- does lazy work in this context
   event = { 'BufReadPre', 'BufNewFile' },
+  cmd = { 'Mason' },
+
   -- install with keys
   dependencies = {
     { 'mason-org/mason.nvim', opts = {} },       -- lsp external installer

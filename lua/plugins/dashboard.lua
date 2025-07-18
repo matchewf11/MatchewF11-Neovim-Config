@@ -93,6 +93,17 @@ return {
             key_format = ' [%s]', -- remove default surrounding `[]`
             action = 'checkhealth',
           },
+          {
+            icon = ' ',
+            icon_hl = 'Title',
+            desc = 'Mason           ',
+            desc_hl = 'String',
+            key = '4',
+            keymap = '',
+            key_hl = 'Number',
+            key_format = ' [%s]', -- remove default surrounding `[]`
+            action = 'Mason',
+          },
         },
         vertical_center = true,
       },

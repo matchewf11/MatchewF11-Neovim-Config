@@ -49,3 +49,6 @@ require("lazy").setup({
 -- keep all plugins as minial as possible with config and stuff and keymaps (try to get rid of stuff)
 -- dashboard :mason
 -- learn about stylua and lualsp and lua check
+--
+-- edit to make plugins better looking can i give autocmds and keymaps to the right
+-- files?
