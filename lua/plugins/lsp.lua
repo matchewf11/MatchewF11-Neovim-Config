@@ -1,78 +1,94 @@
 local function config(event)
-
   require('config.autocmds').lsp()
-
-  -- vim.diagnostic.config {
-  --   severity_sort = true,
-  --   float = { border = 'rounded', source = 'if_many' },
-  --   underline = { severity = vim.diagnostic.severity.ERROR },
-  --
-  --   signs = { 
-  --     text = {
-  --       [vim.diagnostic.severity.ERROR] = '󰅚 ',
-  --       [vim.diagnostic.severity.WARN] = '󰀪 ',
-  --       [vim.diagnostic.severity.INFO] = '󰋽 ',
-  --       [vim.diagnostic.severity.HINT] = '󰌶 ',
-  --     },
-  --   },
-  --
-  --   virtual_text = {
-  --     source = 'if_many',
-  --     spacing = 2,
-  --     format = function(diagnostic)
-  --       local diagnostic_message = {
-  --         [vim.diagnostic.severity.ERROR] = diagnostic.message,
-  --         [vim.diagnostic.severity.WARN] = diagnostic.message,
-  --         [vim.diagnostic.severity.INFO] = diagnostic.message,
-  --         [vim.diagnostic.severity.HINT] = diagnostic.message,
-  --       }
-  --       return diagnostic_message[diagnostic.severity]
-  --     end,
-  --   },
-  -- }
-
-  local capabilitees = require('blink.cmp').get_lsp_capabilities()
-
-  -- can change: cmd (server start), filetype, capabilites, settings
-  require('mason-tool-installer').setup {
-    ensure_installed = {
-      -- 'lua_ls',
-      -- 'stylua',
-      --'stylua',
-      --'luacheck',
-      --'lua_ls',   -- lua lsp
-      -- Lua={completions={callSnippet='Replace'},diagnostive={disable={'missings-fiedls'}},
-      --'stylua',   -- lua fmt
-      --'luacheck', -- lua linting
+  vim.diagnostic.config {
+    severity_sort = true,
+    signs = {
+      text = {
+        [vim.diagnostic.severity.ERROR] = '󰅚 ',
+        [vim.diagnostic.severity.WARN] = '󰀪 ',
+        [vim.diagnostic.severity.INFO] = '󰋽 ',
+        [vim.diagnostic.severity.HINT] = '󰌶 ',
+      },
     },
-    --auto_update = true, -- does this do anything given my setup
-    -- auto run?
+    --   float = { border = 'rounded', source = 'if_many' },
+    --   underline = { severity = vim.diagnostic.severity.ERROR }, -- can change this .WARN
+    --   virtual_text = {
+    --     source = 'if_many',
+    --     spacing = 2,
+    --     format = function(diagnostic)
+    --       local diagnostic_message = {
+    --         [vim.diagnostic.severity.ERROR] = diagnostic.message,
+    --         [vim.diagnostic.severity.WARN] = diagnostic.message,
+    --         [vim.diagnostic.severity.INFO] = diagnostic.message,
+    --         [vim.diagnostic.severity.HINT] = diagnostic.message,
+    --       }
+    --       return diagnostic_message[diagnostic.severity]
+    --     end,
+    --   },
+    --   update_in_instert = false? -- this is random thing i added
   }
 
-  require('mason-lspconfig').setup {
-    -- is turning off auto install necessary
 
-    -- handlers = {
-    --   function(server_name)
-    --   --             local server = servers[server_name] or {}
-    --   --             -- This handles overriding only values explicitly passed
-    --   --             -- by the server configuration above. Useful when disabling
-    --   --             -- certain features of an LSP (for example, turning off formatting for ts_ls)
-    --   --             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-    --   --             require('lspconfig')[server_name].setup(server)
-    --
-    --     -- do i set up something here?
-    --     --require('lspconfig')[server].setup(server_namee)
-    --   end,
+-- return {
+-- 	'WhoIsSethDaniel/mason-tool-installer.nvim',
+-- 	lazy = true,
+-- 	event = { 'BufReadPre', 'BufNewFile' },
+-- 	-- can change: cmd (server start), filetype, capabilites, settings
+-- 	-- opts = {
+-- 	-- 	ensure_installed = {
+-- 	-- 		'lua_ls',
+-- 	-- 	}
+-- 	--
+-- 	-- },
+-- 	config = function()
+-- 		require('mason-tool-installer').setup {
+-- 		    ensure_installed = {
+-- 		      'lua_ls',
+-- 		      -- 'stylua',
+-- 		      --'stylua',
+-- 		      --'luacheck',
+-- 		      --'lua_ls',   -- lua lsp
+-- 		      -- Lua={completions={callSnippet='Replace'},diagnostive={disable={'missings-fiedls'}},
+-- 		      --'stylua',   -- lua fmt
+-- 		      --'luacheck', -- lua linting
+-- 		    },
+-- 		    --auto_update = true, -- does this do anything given my setup
+-- 		    --run_on_start = true,
+-- 		}
+-- 	end,
+-- }
+
+-- ensure :Mason works
+
+
+  local capabilites = require('blink.cmp').get_lsp_capabilities()
+  require('mason-lspconfig').setup { -- hwo can i be sure this is working
+    handlers = {
+      function(server_name)
+        require('lspconfig')[server_name].setup {
+          capabilites = capabilites,
+        }
+      end
+
+      --   function(server_name)
+      --       local server = servers[server_name] or {}
+      --server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+      --             require('lspconfig')[server_name].setup(server)
+      --
+      -- do i set up something here?
+      --require('lspconfig')[server].setup(server_namee)
+      --   end,
+    }
 
   }
-
+  -- auto installation? = false in kcistart
+  -- is turning off auto install necessary
 end
 
 return {
   'neovim/nvim-lspconfig',
-  lazy = true, -- does lazy work in this context
-  event = { 'BufReadPre', 'BufNewFile' },
+  lazy = true,                            -- does lazy work in this context
+  event = { 'BufReadPre', 'BufNewFile' }, -- get rid of vary lazy?
   cmd = { 'Mason' },
 
   -- install with keys
@@ -80,12 +96,14 @@ return {
     { 'mason-org/mason.nvim', opts = {} },       -- lsp external installer
     'mason-org/mason-lspconfig.nvim',            -- connect installs with nvim lsp
     'WhoIsSethDaniel/mason-tool-installer.nvim', -- connects tools with nvim
+    -- seperate the above out for config
     { 'j-hui/fidget.nvim',    opts = {} },
-    'saghen/blink.cmp',                          -- autocomplete configured elsewhere
+    'saghen/blink.cmp', -- autocomplete configured elsewhere
   },
   config = config,
 }
 
+-- ensure that the lua_ls is installed
 -- do go and rust another time, and lua again
 --   make sure to look for stuff for every language in mason and ask chat for outside of mason
 --   ensure that lua, go, and rust lsp gets downloaded (mason)
@@ -106,5 +124,25 @@ return {
 -- make sure that all my stuff in tools is installing automatically
 -- look at the lua type plugin thing
 -- look up how to shift k look and scroll it or open it in a split
+
+-- make like a file that makes it easy to add langues with customizations
+-- like with treesitter, lsp, fmt, linting, adn otehr stuff
+
+-- -- Other popular tooling
+-- 'gopls',         -- Go
+-- 'rust_analyzer', -- Rust
+-- 'clangd',        -- C/C++
+-- 'bashls',        -- Shell
+-- 'dockerls',      -- Docker
+-- 'jsonls',        -- JSON
+-- 'yamlls',        -- YAML
+-- 'html',          -- HTML
+-- 'cssls',         -- CSS
+-- 'tsserver',      -- JS/TS
+-- 'eslint',        -- JS/TS lint
+-- 'marksman',      -- Markdown
+-- 'taplo',         -- TOML
+-- 'sqls',          -- SQL
+-- 'lemminx',       -- XML
 
 -- vim: ts=2 sts=2 sw=2 et
