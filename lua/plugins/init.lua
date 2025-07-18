@@ -26,8 +26,7 @@ return {}
 --         build = (function()
 --           -- Build Step is needed for regex support in snippets.
 --           -- This step is not supported in many windows environments.
---           -- Remove the below condition to re-enable on windows.
---           if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then
+--           -- Remove the below condition to re-enable on windows. if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then
 --             return
 --           end
 --           return 'make install_jsregexp'
@@ -119,16 +118,9 @@ return {}
 -- require 'kickstart.plugins.autopairs',
 -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
--- }, {
---   ui = {
---     icons = {}
---   },
--- })
-
--- colorscheme
 -- dashbaord
 -- mini.lua
---
+
 -- source %
 -- luafile %
 -- flaoting terminal
@@ -157,3 +149,8 @@ return {}
 -- is the context window too much
 -- add toggleterm.nvim
 -- lualine.nvim for status bar instead of the mini.statsu
+-- make a keymap to open terminal in split instead of plugin?
+-- get rid of plugins
+-- work with picom to fix tearing
+-- keep all plugins as minial as possible with config and stuff and keymaps (try to get rid of stuff)
+-- dashboard :mason

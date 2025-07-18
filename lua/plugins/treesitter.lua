@@ -16,7 +16,8 @@ return {
 	build = ":TSUpdate",
 	main = 'nvim-treesitter.configs',
 	opts = {
-		ensure_installed = { "c",
+		ensure_installed = { 
+			--"c",
 			"diff",
 			"html",
 			"lua",
