@@ -80,7 +80,7 @@ local function config(event)
   --   },
   -- }
 
-  local capabilitees = require('blink.cmp').get_lsp_capabilites()
+  local capabilitees = require('blink.cmp').get_lsp_capabilities()
 
   -- can change: cmd (server start), filetype, capabilites, settings
   require('mason-tool-installer').setup {
@@ -113,6 +113,7 @@ local function config(event)
     --     -- do i set up something here?
     --     --require('lspconfig')[server].setup(server_namee)
     --   end,
+
   }
 end
 

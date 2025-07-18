@@ -1,21 +1,7 @@
-return {}
-
---   -- See `:help gitsigns` to understand what the configuration keys do
---   { -- Adds git related signs to the gutter, as well as utilities for managing changes
---     'lewis6991/gitsigns.nvim',
---     opts = {
---       signs = {
---         add = { text = '+' },
---         change = { text = '~' },
---         delete = { text = '_' },
---         topdelete = { text = '‾' },
---         changedelete = { text = '~' },
---       },
---     },
---   },
-
---   { -- Autocompletion
---     'saghen/blink.cmp',
+-- Autocompletion
+return { --config later
+	'saghen/blink.cmp',
+	event = 'VimEnter', -- change this later
 --     event = 'VimEnter',
 --     version = '1.*',
 --     dependencies = {
@@ -110,47 +96,5 @@ return {}
 --       -- Shows a signature help window while you type arguments for a function
 --       signature = { enabled = true },
 --     },
---   },
+}
 
--- require 'kickstart.plugins.debug',
--- require 'kickstart.plugins.indent_line',
--- require 'kickstart.plugins.lint',
--- require 'kickstart.plugins.autopairs',
--- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
-
--- dashbaord
--- mini.lua
-
--- source %
--- luafile %
--- flaoting terminal
--- opts --keycaps
--- lazy
--- lsp
--- treee sitter
--- oil
--- fzf-lua
--- render markdown
--- autopairs
--- blink
--- mason
--- whichkey
--- go, rust, lua
--- debugger
---
--- func that changes working dir
--- fix up mini.nivm
--- fzf instead of telescope
--- group plugins by files or dir
--- clear status line in vim.options
--- look thorugh config file to clean things up like keymaps and stuff
--- get rid of this file at the end
--- make everything lazy btw
--- is the context window too much
--- add toggleterm.nvim
--- lualine.nvim for status bar instead of the mini.statsu
--- make a keymap to open terminal in split instead of plugin?
--- get rid of plugins
--- work with picom to fix tearing
--- keep all plugins as minial as possible with config and stuff and keymaps (try to get rid of stuff)
--- dashboard :mason
