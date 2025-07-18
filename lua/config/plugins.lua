@@ -5,7 +5,7 @@ require("lazy").setup({
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { "kanagawa" } },
-  checker = { enabled = true },
+  checker = { enabled = false },
   change_detection = { notify = false }
 })
 
@@ -234,8 +234,6 @@ require("lazy").setup({
 --   },
 -- }
 
-
-
 -- require 'kickstart.plugins.debug', (more debugger?)
 -- require 'kickstart.plugins.indent_line',
 -- require 'kickstart.plugins.lint',
@@ -246,10 +244,8 @@ require("lazy").setup({
 -- go, rust, lua
 
 -- func that changes working dir
--- fzf instead of telescope
 -- group plugins by files or dir
 -- look thorugh config file to clean things up like keymaps and stuff
--- get rid of mini.nvim for otehr status bar
 --
 -- work with picom to fix tearing
 -- keep all plugins as minial as possible with config and stuff and keymaps (try to get rid of stuff)
