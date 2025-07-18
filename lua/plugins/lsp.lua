@@ -10,21 +10,44 @@ local function config(event)
         [vim.diagnostic.severity.HINT] = '󰌶 ',
       },
     },
+
+    -- virtual_text = {
+    --   spacing = 1,
+    --   format = function(diagnostic)
+    --     local icons = {
+    --       [vim.diagnostic.severity.ERROR] = " ",
+    --       [vim.diagnostic.severity.WARN]  = " ",
+    --       [vim.diagnostic.severity.INFO]  = " ",
+    --       [vim.diagnostic.severity.HINT]  = "󰌵 ",
+    --     }
+    --     local icon = icons[diagnostic.severity] or ""
+    --     local source = diagnostic.source or ""
+    --     return string.format("%s%s [%s]", icon, diagnostic.message, source)
+    --   end,
+    -- }
+
+    virtual_text = {
+      source = 'if_many', -- only show source if more than one lsp
+      spacing = 1,        -- padding between code and text
+      format = function(diagnostic)
+        -- use this for custom messages
+        -- local diagnostic_message = {
+        --   [vim.diagnostic.severity.ERROR] = diagnostic.message,
+        --   [vim.diagnostic.severity.WARN] = diagnostic.message,
+        --   [vim.diagnostic.severity.INFO] = diagnostic.message,
+        --   [vim.diagnostic.severity.HINT] = diagnostic.message,
+        -- }
+        -- return diagnostic_message[diagnostic.severity]
+        return diagnostic.message
+      end,
+    }
+
+
+
+
+
     --   float = { border = 'rounded', source = 'if_many' },
     --   underline = { severity = vim.diagnostic.severity.ERROR }, -- can change this .WARN
-    --   virtual_text = {
-    --     source = 'if_many',
-    --     spacing = 2,
-    --     format = function(diagnostic)
-    --       local diagnostic_message = {
-    --         [vim.diagnostic.severity.ERROR] = diagnostic.message,
-    --         [vim.diagnostic.severity.WARN] = diagnostic.message,
-    --         [vim.diagnostic.severity.INFO] = diagnostic.message,
-    --         [vim.diagnostic.severity.HINT] = diagnostic.message,
-    --       }
-    --       return diagnostic_message[diagnostic.severity]
-    --     end,
-    --   },
     --   update_in_instert = false? -- this is random thing i added
   }
 
@@ -35,7 +58,7 @@ local function config(event)
     ensure_installed = {
       'lua_ls',
       'stylua',
-    },
+    }, -- stylua should be my formtatter rn
 
     -- 	-- can change: cmd (server start), filetype, capabilites, settings
     -- 	-- opts = {
@@ -61,29 +84,22 @@ local function config(event)
     -- 		}
     -- 	end,
     -- }
-
-    -- ensure :Mason works
-
   }
-
 
   local capabilities = require('blink.cmp').get_lsp_capabilities()
   require('mason-lspconfig').setup { -- how do i know if this is working
     handlers = {
       function(server_name)
+        -- this for config
+        --local server = servers[server_name] or {}
+        --server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+        --require('lspconfig')[server_name].setup(server)
+        -- do i set up something here?
+        --require('lspconfig')[server].setup(server_namee)
         require('lspconfig')[server_name].setup {
           capabilities = capabilities,
         }
       end
-
-      --   function(server_name)
-      --       local server = servers[server_name] or {}
-      --server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-      --             require('lspconfig')[server_name].setup(server)
-      --
-      -- do i set up something here?
-      --require('lspconfig')[server].setup(server_namee)
-      --   end,
     }
 
   }

@@ -1,7 +1,7 @@
 return {
-	'windwp/nvim-autopairs',
+	"windwp/nvim-autopairs",
 	lazy = true,
-	event = 'InsertEnter',
+	event = "InsertEnter",
 	opts = {},
 }
 
@@ -179,8 +179,6 @@ return {
 -- 	},
 -- }
 
-
-
 -- require('nvim-autopairs').setup({
 --   enable_check_bracket_line = false
 -- })
@@ -209,14 +207,4 @@ return {
 --     },
 -- })
 
-
 -- also autotag
-
-
-
-
-
-
-
-
-
