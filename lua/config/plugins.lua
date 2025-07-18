@@ -318,6 +318,8 @@ require("lazy").setup({
 --   "js-debug-adapter", -- JS/TS
 -- }
 --
---
+-- look into tab feature?, also amek sure config matches (search tabs fzf, hide tabs and otehr stuff)
+-- look into all my plugin configs to see if it affects anythign
+-- look into floating windows from tj
 --
 -- add a bunch of the default keymaps of the plugins i added to the keymap file

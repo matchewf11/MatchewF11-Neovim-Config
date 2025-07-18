@@ -28,45 +28,51 @@ local function config(event)
     --   update_in_instert = false? -- this is random thing i added
   }
 
+  -- config the stuff i install later?
+  -- like in kickstart
 
--- return {
--- 	'WhoIsSethDaniel/mason-tool-installer.nvim',
--- 	lazy = true,
--- 	event = { 'BufReadPre', 'BufNewFile' },
--- 	-- can change: cmd (server start), filetype, capabilites, settings
--- 	-- opts = {
--- 	-- 	ensure_installed = {
--- 	-- 		'lua_ls',
--- 	-- 	}
--- 	--
--- 	-- },
--- 	config = function()
--- 		require('mason-tool-installer').setup {
--- 		    ensure_installed = {
--- 		      'lua_ls',
--- 		      -- 'stylua',
--- 		      --'stylua',
--- 		      --'luacheck',
--- 		      --'lua_ls',   -- lua lsp
--- 		      -- Lua={completions={callSnippet='Replace'},diagnostive={disable={'missings-fiedls'}},
--- 		      --'stylua',   -- lua fmt
--- 		      --'luacheck', -- lua linting
--- 		    },
--- 		    --auto_update = true, -- does this do anything given my setup
--- 		    --run_on_start = true,
--- 		}
--- 	end,
--- }
+  require('mason-tool-installer').setup {
+    ensure_installed = {
+      'lua_ls',
+      'stylua',
+    },
 
--- ensure :Mason works
+    -- 	-- can change: cmd (server start), filetype, capabilites, settings
+    -- 	-- opts = {
+    -- 	-- 	ensure_installed = {
+    -- 	-- 		'lua_ls',
+    -- 	-- 	}
+    -- 	--
+    -- 	-- },
+    -- 	config = function()
+    -- 		require('mason-tool-installer').setup {
+    -- 		    ensure_installed = {
+    -- 		      'lua_ls',
+    -- 		      -- 'stylua',
+    -- 		      --'stylua',
+    -- 		      --'luacheck',
+    -- 		      --'lua_ls',   -- lua lsp
+    -- 		      -- Lua={completions={callSnippet='Replace'},diagnostive={disable={'missings-fiedls'}},
+    -- 		      --'stylua',   -- lua fmt
+    -- 		      --'luacheck', -- lua linting
+    -- 		    },
+    -- 		    --auto_update = true, -- does this do anything given my setup
+    -- 		    --run_on_start = true,
+    -- 		}
+    -- 	end,
+    -- }
+
+    -- ensure :Mason works
+
+  }
 
 
-  local capabilites = require('blink.cmp').get_lsp_capabilities()
-  require('mason-lspconfig').setup { -- hwo can i be sure this is working
+  local capabilities = require('blink.cmp').get_lsp_capabilities()
+  require('mason-lspconfig').setup { -- how do i know if this is working
     handlers = {
       function(server_name)
         require('lspconfig')[server_name].setup {
-          capabilites = capabilites,
+          capabilities = capabilities,
         }
       end
 
@@ -87,9 +93,10 @@ end
 
 return {
   'neovim/nvim-lspconfig',
-  lazy = true,                            -- does lazy work in this context
-  event = { 'BufReadPre', 'BufNewFile' }, -- get rid of vary lazy?
-  cmd = { 'Mason' },
+  lazy = false, -- fix this later idk how to fix
+  -- lazy = true,                            -- does lazy work in this context
+  -- event = { 'BufReadPre', 'BufNewFile' }, -- get rid of vary lazy?
+  -- cmd = { 'Mason' },
 
   -- install with keys
   dependencies = {
