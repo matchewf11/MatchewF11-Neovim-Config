@@ -18,8 +18,8 @@ return {
     },
     keymap = {
       builtin = {
-        ["<C-n>"] = "preview-page-down",
-        ["<C-p>"] = "preview-page-up",
+        ['<C-n>'] = 'preview-page-down',
+        ['<C-p>'] = 'preview-page-up',
       },
     },
     previewers = {
@@ -31,12 +31,42 @@ return {
     },
   },
   keys = {
-    { '<leader>sb', function() require('fzf-lua').buffers() end,  desc = '[s]earch [b]uffer' },
-    { '<leader>sf', function() require('fzf-lua').files() end,    desc = '[s]earch [f]ile' },
-    { '<leader>so', function() require('fzf-lua').oldfiles() end, desc = '[s]earch [o]ld files' },
-    { '<leader>sl', function() require('fzf-lua').blines() end,   desc = '[s]earch [l]ines (local)' },
-    { '<leader>sL', function() require('fzf-lua').lines() end,    desc = '[s]earch [L]ines (buffers)' },
-  }
+    {
+      '<leader>sb',
+      function()
+        require('fzf-lua').buffers()
+      end,
+      desc = '[s]earch [b]uffer',
+    },
+    {
+      '<leader>sf',
+      function()
+        require('fzf-lua').files()
+      end,
+      desc = '[s]earch [f]ile',
+    },
+    {
+      '<leader>so',
+      function()
+        require('fzf-lua').oldfiles()
+      end,
+      desc = '[s]earch [o]ld files',
+    },
+    {
+      '<leader>sl',
+      function()
+        require('fzf-lua').blines()
+      end,
+      desc = '[s]earch [l]ines (local)',
+    },
+    {
+      '<leader>sL',
+      function()
+        require('fzf-lua').lines()
+      end,
+      desc = '[s]earch [L]ines (buffers)',
+    },
+  },
 }
 
 -- tags 	search project tags

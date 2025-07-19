@@ -1,13 +1,13 @@
-require("lazy").setup({
-	spec = {
-		{ import = "plugins" },
-	},
-	-- Configure any other settings here. See the documentation for more details.
-	-- colorscheme that will be used when installing plugins.
-	install = { colorscheme = { "kanagawa" } },
-	checker = { enabled = false },
-	change_detection = { notify = false },
-})
+require('lazy').setup {
+  spec = {
+    { import = 'plugins' },
+  },
+  -- Configure any other settings here. See the documentation for more details.
+  -- colorscheme that will be used when installing plugins.
+  install = { colorscheme = { 'kanagawa' } },
+  checker = { enabled = false },
+  change_detection = { notify = false },
+}
 
 -- {
 --   root = vim.fn.stdpath("data") .. "/lazy", -- directory where plugins will be installed
