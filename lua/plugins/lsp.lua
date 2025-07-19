@@ -1,129 +1,125 @@
 local function config(event)
-  require('config.autocmds').lsp()
-  vim.diagnostic.config {
-    severity_sort = true,
-    signs = {
-      text = {
-        [vim.diagnostic.severity.ERROR] = '󰅚 ',
-        [vim.diagnostic.severity.WARN] = '󰀪 ',
-        [vim.diagnostic.severity.INFO] = '󰋽 ',
-        [vim.diagnostic.severity.HINT] = '󰌶 ',
-      },
-    },
+	_ = event -- get rid of warning
+	require("config.autocmds").lsp()
+	vim.diagnostic.config({
+		severity_sort = true,
+		signs = {
+			text = {
+				[vim.diagnostic.severity.ERROR] = "󰅚 ",
+				[vim.diagnostic.severity.WARN] = "󰀪 ",
+				[vim.diagnostic.severity.INFO] = "󰋽 ",
+				[vim.diagnostic.severity.HINT] = "󰌶 ",
+			},
+		},
 
-    -- virtual_text = {
-    --   spacing = 1,
-    --   format = function(diagnostic)
-    --     local icons = {
-    --       [vim.diagnostic.severity.ERROR] = " ",
-    --       [vim.diagnostic.severity.WARN]  = " ",
-    --       [vim.diagnostic.severity.INFO]  = " ",
-    --       [vim.diagnostic.severity.HINT]  = "󰌵 ",
-    --     }
-    --     local icon = icons[diagnostic.severity] or ""
-    --     local source = diagnostic.source or ""
-    --     return string.format("%s%s [%s]", icon, diagnostic.message, source)
-    --   end,
-    -- }
+		-- virtual_text = {
+		--   spacing = 1,
+		--   format = function(diagnostic)
+		--     local icons = {
+		--       [vim.diagnostic.severity.ERROR] = " ",
+		--       [vim.diagnostic.severity.WARN]  = " ",
+		--       [vim.diagnostic.severity.INFO]  = " ",
+		--       [vim.diagnostic.severity.HINT]  = "󰌵 ",
+		--     }
+		--     local icon = icons[diagnostic.severity] or ""
+		--     local source = diagnostic.source or ""
+		--     return string.format("%s%s [%s]", icon, diagnostic.message, source)
+		--   end,
+		-- }
 
-    virtual_text = {
-      source = 'if_many', -- only show source if more than one lsp
-      spacing = 1,        -- padding between code and text
-      format = function(diagnostic)
-        -- use this for custom messages
-        -- local diagnostic_message = {
-        --   [vim.diagnostic.severity.ERROR] = diagnostic.message,
-        --   [vim.diagnostic.severity.WARN] = diagnostic.message,
-        --   [vim.diagnostic.severity.INFO] = diagnostic.message,
-        --   [vim.diagnostic.severity.HINT] = diagnostic.message,
-        -- }
-        -- return diagnostic_message[diagnostic.severity]
-        return diagnostic.message
-      end,
-    }
+		virtual_text = {
+			source = "if_many", -- only show source if more than one lsp
+			spacing = 1, -- padding between code and text
+			format = function(diagnostic)
+				-- use this for custom messages
+				-- local diagnostic_message = {
+				--   [vim.diagnostic.severity.ERROR] = diagnostic.message,
+				--   [vim.diagnostic.severity.WARN] = diagnostic.message,
+				--   [vim.diagnostic.severity.INFO] = diagnostic.message,
+				--   [vim.diagnostic.severity.HINT] = diagnostic.message,
+				-- }
+				-- return diagnostic_message[diagnostic.severity]
+				return diagnostic.message
+			end,
+		},
 
+		--   float = { border = 'rounded', source = 'if_many' },
+		--   underline = { severity = vim.diagnostic.severity.ERROR }, -- can change this .WARN
+		--   update_in_instert = false? -- this is random thing i added
+	})
 
+	-- config the stuff i install later?
+	-- like in kickstart
 
+	require("mason-tool-installer").setup({
+		ensure_installed = {
+			"lua_ls",
+			"stylua",
+		}, -- stylua should be my formtatter rn
 
+		-- 	-- can change: cmd (server start), filetype, capabilites, settings
+		-- 	-- opts = {
+		-- 	-- 	ensure_installed = {
+		-- 	-- 		'lua_ls',
+		-- 	-- 	}
+		-- 	--
+		-- 	-- },
+		-- 	config = function()
+		-- 		require('mason-tool-installer').setup {
+		-- 		    ensure_installed = {
+		-- 		      'lua_ls',
+		-- 		      -- 'stylua',
+		-- 		      --'stylua',
+		-- 		      --'luacheck',
+		-- 		      --'lua_ls',   -- lua lsp
+		-- 		      -- Lua={completions={callSnippet='Replace'},diagnostive={disable={'missings-fiedls'}},
+		-- 		      --'stylua',   -- lua fmt
+		-- 		      --'luacheck', -- lua linting
+		-- 		    },
+		-- 		    --auto_update = true, -- does this do anything given my setup
+		-- 		    --run_on_start = true,
+		-- 		}
+		-- 	end,
+		-- }
+	})
 
-    --   float = { border = 'rounded', source = 'if_many' },
-    --   underline = { severity = vim.diagnostic.severity.ERROR }, -- can change this .WARN
-    --   update_in_instert = false? -- this is random thing i added
-  }
-
-  -- config the stuff i install later?
-  -- like in kickstart
-
-  require('mason-tool-installer').setup {
-    ensure_installed = {
-      'lua_ls',
-      'stylua',
-    }, -- stylua should be my formtatter rn
-
-    -- 	-- can change: cmd (server start), filetype, capabilites, settings
-    -- 	-- opts = {
-    -- 	-- 	ensure_installed = {
-    -- 	-- 		'lua_ls',
-    -- 	-- 	}
-    -- 	--
-    -- 	-- },
-    -- 	config = function()
-    -- 		require('mason-tool-installer').setup {
-    -- 		    ensure_installed = {
-    -- 		      'lua_ls',
-    -- 		      -- 'stylua',
-    -- 		      --'stylua',
-    -- 		      --'luacheck',
-    -- 		      --'lua_ls',   -- lua lsp
-    -- 		      -- Lua={completions={callSnippet='Replace'},diagnostive={disable={'missings-fiedls'}},
-    -- 		      --'stylua',   -- lua fmt
-    -- 		      --'luacheck', -- lua linting
-    -- 		    },
-    -- 		    --auto_update = true, -- does this do anything given my setup
-    -- 		    --run_on_start = true,
-    -- 		}
-    -- 	end,
-    -- }
-  }
-
-  local capabilities = require('blink.cmp').get_lsp_capabilities()
-  require('mason-lspconfig').setup { -- how do i know if this is working
-    handlers = {
-      function(server_name)
-        -- this for config
-        --local server = servers[server_name] or {}
-        --server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-        --require('lspconfig')[server_name].setup(server)
-        -- do i set up something here?
-        --require('lspconfig')[server].setup(server_namee)
-        require('lspconfig')[server_name].setup {
-          capabilities = capabilities,
-        }
-      end
-    }
-
-  }
-  -- auto installation? = false in kcistart
-  -- is turning off auto install necessary
+	local capabilities = require("blink.cmp").get_lsp_capabilities()
+	require("mason-lspconfig").setup({ -- how do i know if this is working
+		handlers = {
+			function(server_name)
+				-- this for config
+				--local server = servers[server_name] or {}
+				--server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+				--require('lspconfig')[server_name].setup(server)
+				-- do i set up something here?
+				--require('lspconfig')[server].setup(server_namee)
+				require("lspconfig")[server_name].setup({
+					capabilities = capabilities,
+				})
+			end,
+		},
+	})
+	-- auto installation? = false in kcistart
+	-- is turning off auto install necessary
 end
 
 return {
-  'neovim/nvim-lspconfig',
-  lazy = false, -- fix this later idk how to fix
-  -- lazy = true,                            -- does lazy work in this context
-  -- event = { 'BufReadPre', 'BufNewFile' }, -- get rid of vary lazy?
-  -- cmd = { 'Mason' },
+	"neovim/nvim-lspconfig",
+	lazy = false, -- fix this later idk how to fix
+	-- lazy = true,                            -- does lazy work in this context
+	-- event = { 'BufReadPre', 'BufNewFile' }, -- get rid of vary lazy?
+	-- cmd = { 'Mason' },
 
-  -- install with keys
-  dependencies = {
-    { 'mason-org/mason.nvim', opts = {} },       -- lsp external installer
-    'mason-org/mason-lspconfig.nvim',            -- connect installs with nvim lsp
-    'WhoIsSethDaniel/mason-tool-installer.nvim', -- connects tools with nvim
-    -- seperate the above out for config
-    { 'j-hui/fidget.nvim',    opts = {} },
-    'saghen/blink.cmp', -- autocomplete configured elsewhere
-  },
-  config = config,
+	-- install with keys
+	dependencies = {
+		{ "mason-org/mason.nvim", opts = {} }, -- lsp external installer
+		"mason-org/mason-lspconfig.nvim", -- connect installs with nvim lsp
+		"WhoIsSethDaniel/mason-tool-installer.nvim", -- connects tools with nvim
+		-- seperate the above out for config
+		{ "j-hui/fidget.nvim", opts = {} },
+		"saghen/blink.cmp", -- autocomplete configured elsewhere
+	},
+	config = config,
 }
 
 -- ensure that the lua_ls is installed

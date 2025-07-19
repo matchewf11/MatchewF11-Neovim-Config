@@ -1,12 +1,12 @@
 require("lazy").setup({
-  spec = {
-    { import = "plugins" },
-  },
-  -- Configure any other settings here. See the documentation for more details.
-  -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "kanagawa" } },
-  checker = { enabled = false },
-  change_detection = { notify = false }
+	spec = {
+		{ import = "plugins" },
+	},
+	-- Configure any other settings here. See the documentation for more details.
+	-- colorscheme that will be used when installing plugins.
+	install = { colorscheme = { "kanagawa" } },
+	checker = { enabled = false },
+	change_detection = { notify = false },
 })
 
 -- {
@@ -262,11 +262,6 @@ require("lazy").setup({
 --maybe use docker tools and shell and sql and other stuff
 -- edit to make plugins better looking can i give autocmds and keymaps to the right
 -- files?
---
---
---
---
---
 
 -- adn otehr stuff!!!!
 -- ensure_installed = {
@@ -322,4 +317,11 @@ require("lazy").setup({
 -- look into all my plugin configs to see if it affects anythign
 -- look into floating windows from tj
 --
+--make sure to look at all plugins keymaps to write down
+-- look at all config again (clean adn look for errs)
+-- rellook at all config specs for plugins
+-- copys notes over from mac
+-- config other stuff
+-- reasearch nvim basic keymaps and commands
+-- config firefox as well
 -- add a bunch of the default keymaps of the plugins i added to the keymap file
