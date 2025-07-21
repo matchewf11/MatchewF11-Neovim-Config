@@ -1,4 +1,14 @@
 return {
+
+  -- adds git related signs to gutter, mangages changes too
+  -- research how to use this
+  --   signs, hunk-actions, blame, diff, quickfix/loacation-list
+  --   text-object, status line integration, diff revisions of buffs
+  -- look up how to config
+
+  -- i jsut ripped the kickstart conifg
+  -- set up later!!!! with my own
+
   'lewis6991/gitsigns.nvim', -- config later
 }
 

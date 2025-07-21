@@ -9,6 +9,7 @@ return { --config later
   version = '1.*',
   dependencies = {
     { -- delte this or config it later (dont know what it does)
+      -- look up (fn -> full function for my langs)
       'L3MON4D3/LuaSnip',
       version = '2.*',
       build = (function()
