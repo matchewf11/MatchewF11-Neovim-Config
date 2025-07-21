@@ -14,6 +14,7 @@ function M.lsp()
   vim.api.nvim_create_autocmd('LspAttach', { -- do this when i attach lsp
     --group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
     callback = function(event)
+      _ = event
       require('config.keymaps').lsp()
 
       --@param client vim.lsp.Client

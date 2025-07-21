@@ -76,7 +76,7 @@ return {
 -- tags_grep_cWORD 	tags_grep WORD under cursor
 -- tags_grep_visual 	tags_grep visual selection
 -- tags_live_grep 	live grep project tags
---
+
 -- git_files 	git ls-files
 -- git_status 	git status
 -- git_diff 	git diff {ref}
@@ -87,7 +87,7 @@ return {
 -- git_branches 	git branches
 -- git_tags 	git tags
 -- git_stash 	git stash
---
+
 -- lsp_references 	References
 -- lsp_definitions 	Definitions
 -- lsp_declarations 	Declarations
@@ -125,30 +125,30 @@ return {
 -- spellcheck 	misspelled words in buffer
 -- spell_suggest 	spelling suggestions
 -- packadd 	:packadd
---
+
 -- register_ui_select 	register fzf-lua as the UI interface for vim.ui.select
 -- deregister_ui_select 	de-register fzf-lua with vim.ui.select
---
+
 -- dap_commands 	list,run nvim-dap builtin commands
 -- dap_configurations 	list,run debug configurations
 -- dap_breakpoints 	list,delete breakpoints
 -- dap_variables 	active session variables
 -- dap_frames 	active session jump to frame
---
+
 -- tmux_buffers 	list tmux paste buffers
---
+
 -- zoxide 	list recent directories
---
+
 -- complete_path 	complete path under cursor (incl dirs)
 -- complete_file 	complete file under cursor (excl dirs)
 -- complete_line 	complete line (all open buffers)
 -- complete_bline 	complete line (current buffer only)
 
--- -- quickfix -- qf list
--- -- quickfix_stack  -- qf stack
--- -- loclist -- locations list
--- -- loclist_stack -- location stack
--- -- treesitter -- treesitter symbols
+-- quickfix -- qf list
+-- quickfix_stack  -- qf stack
+-- loclist -- locations list
+-- loclist_stack -- location stack
+-- treesitter -- treesitter symbols
 
 -- grep
 -- grep_last -- last patter
@@ -166,5 +166,3 @@ return {
 -- live_grep_resume 	live grep continue last search
 -- live_grep_glob 	live_grep with rg --glob support
 -- live_grep_native 	performant version of live_grep
-
--- vim: ts=2 sts=2 sw=2 et

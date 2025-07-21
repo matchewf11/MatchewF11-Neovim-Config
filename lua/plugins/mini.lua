@@ -50,3 +50,70 @@ return {
 -- mini.trailspace 	Trailspace (highlight and remove) 	README 	Help file
 -- mini.doc 	Generate Neovim help files 	README 	Help file
 -- mini.test 	Test Neovim plugins 	README 	Help file
+
+-- MiniMisc.setup_auto_root = function(names, fallback)
+--   names = names or { '.git', 'Makefile' }
+--   if not (H.is_array_of(names, H.is_string) or vim.is_callable(names)) then
+--     H.error('Argument `names` of `setup_auto_root()` should be array of string file names or a callable.')
+--   end
+--
+--   fallback = fallback or function() return nil end
+--   if not vim.is_callable(fallback) then H.error('Argument `fallback` of `setup_auto_root()` should be callable.') end
+--
+--   -- Disable conflicting option
+--   vim.o.autochdir = false
+--
+--   -- Create autocommand
+--   local set_root = vim.schedule_wrap(function(data)
+--     if data.buf ~= vim.api.nvim_get_current_buf() then return end
+--     local root = MiniMisc.find_root(data.buf, names, fallback)
+--     if root == nil then return end
+--     vim.fn.chdir(root)
+--   end)
+--   local augroup = vim.api.nvim_create_augroup('MiniMiscAutoRoot', {})
+--   local opts = { group = augroup, nested = true, callback = set_root, desc = 'Find root and change current directory' }
+--   vim.api.nvim_create_autocmd('BufEnter', opts)
+-- end
+
+-- MiniMisc.find_root = function(buf_id, names, fallback)
+--   buf_id = buf_id or 0
+--   names = names or { '.git', 'Makefile' }
+--   fallback = fallback or function() return nil end
+--
+--   if not H.is_valid_buf(buf_id) then H.error('Argument `buf_id` of `find_root()` should be valid buffer id.') end
+--   if not (H.is_array_of(names, H.is_string) or vim.is_callable(names)) then
+--     H.error('Argument `names` of `find_root()` should be array of string file names or a callable.')
+--   end
+--   if not vim.is_callable(fallback) then H.error('Argument `fallback` of `find_root()` should be callable.') end
+--
+--   -- Compute directory to start search from. NOTEs on why not using file path:
+--   -- - This has better performance because `vim.fs.find()` is called less.
+--   -- - *Needs* to be a directory for callable `names` to work.
+--   -- - Later search is done including initial `path` if directory, so this
+--   --   should work for detecting buffer directory as root.
+--   local path = vim.api.nvim_buf_get_name(buf_id)
+--   if path == '' then return end
+--   local dir_path = vim.fs.dirname(path)
+--
+--   -- Try using cache
+--   local res = H.root_cache[dir_path]
+--   if res ~= nil then return res end
+--
+--   -- Find root
+--   local root_file = vim.fs.find(names, { path = dir_path, upward = true })[1]
+--   if root_file ~= nil then
+--     res = vim.fs.dirname(root_file)
+--   else
+--     res = fallback(path)
+--   end
+--
+--   -- Use absolute path to an existing directory
+--   if type(res) ~= 'string' then return end
+--   res = vim.fs.normalize(vim.fn.fnamemodify(res, ':p'))
+--   if vim.fn.isdirectory(res) == 0 then return end
+--
+--   -- Cache result per directory path
+--   H.root_cache[dir_path] = res
+--
+--   return res
+-- end

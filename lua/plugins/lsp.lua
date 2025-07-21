@@ -55,7 +55,7 @@ local function config(event)
     ensure_installed = {
       'lua_ls',
       'stylua',
-    }, -- stylua should be my formtatter rn
+    },
 
     -- 	-- can change: cmd (server start), filetype, capabilites, settings
     -- 	-- opts = {
@@ -112,37 +112,29 @@ return {
 
   -- install with keys
   dependencies = {
-    { 'mason-org/mason.nvim', opts = {} }, -- lsp external installer
-    'mason-org/mason-lspconfig.nvim', -- connect installs with nvim lsp
-    'WhoIsSethDaniel/mason-tool-installer.nvim', -- connects tools with nvim
-    -- seperate the above out for config
+    { 'mason-org/mason.nvim', opts = {} },
+    'mason-org/mason-lspconfig.nvim',
+    'WhoIsSethDaniel/mason-tool-installer.nvim',
     { 'j-hui/fidget.nvim', opts = {} },
-    'saghen/blink.cmp', -- autocomplete configured elsewhere
+    'saghen/blink.cmp',
   },
   config = config,
 }
 
--- ensure that the lua_ls is installed
--- do go and rust another time, and lua again
 --   make sure to look for stuff for every language in mason and ask chat for outside of mason
---   ensure that lua, go, and rust lsp gets downloaded (mason)
---   look for other stuff in mason
---   lsp, dap, linters, and formatters
---   make sure to install markdown, and bash, and check for otehr stuff too
+--ensure that lua, go, and rust lsp gets downloaded (and other cools stuff)
+-- look for other cool stuff in mason (lsp, dap, linters, formatters)
+-- look for rnadom languages markdown, bash, sql, docker (code spell)(+ generic stuff)
+-- config stuff that i add
+-- lua with types plug in?
+
 --    'lua-language-server', 'vim-language-server', 'stylua', 'shellcheck',
 --    'editorconfig-checker','gofumpt', 'golines', 'gomodifytags', 'gotests',
 --    'impl', 'json-to-struct', 'luacheck', 'misspell', 'revive', 'shellcheck',
 --    'shfmt', 'staticcheck', 'vint',
--- add mason to dashboard
--- make sure to config suff if possible (lsp and formatter)
--- format thing and format on save
+
 -- also find a way to run luacheck
 -- look into textobject again, context, and otehr mini stuff i skipped
--- look for all other stuff in mason like codespell (otehr generic stuff)
--- maybe also sql stuff, bash stuff
--- make sure that all my stuff in tools is installing automatically
--- look at the lua type plugin thing
--- look up how to shift k look and scroll it or open it in a split
 
 -- make like a file that makes it easy to add langues with customizations
 -- like with treesitter, lsp, fmt, linting, adn otehr stuff
@@ -163,5 +155,3 @@ return {
 -- 'taplo',         -- TOML
 -- 'sqls',          -- SQL
 -- 'lemminx',       -- XML
-
--- vim: ts=2 sts=2 sw=2 et
