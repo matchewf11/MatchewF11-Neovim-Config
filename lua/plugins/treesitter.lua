@@ -6,6 +6,7 @@ local large_file = function(lang, buf) -- disables for large files
   end
 end
 
+-- langs that are janky
 local regex_langs = {}
 
 -- highlight, edit, and naviage code
@@ -38,7 +39,7 @@ return {
     },
     indent = {
       enable = true,
-      disable = regex_langs, -- set this to weird languiages
+      disable = regex_langs,
     },
   },
 }
