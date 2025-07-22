@@ -90,3 +90,5 @@ require('lazy').setup {
 -- add a bunch of the default keymaps of the plugins i added to the keymap file
 -- :help
 -- this file is good just, review plugins from /plugins/ folder
+-- could i just use web-devicons or mini icons
+-- conifg web-devicons
