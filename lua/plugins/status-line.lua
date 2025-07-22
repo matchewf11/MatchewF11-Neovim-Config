@@ -1,6 +1,6 @@
 return {
   'nvim-lualine/lualine.nvim',
-  event = 'VimEnter',
+  event = 'VeryLazy',
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   opts = {
     options = {
@@ -40,34 +40,48 @@ return {
       --       },
     },
 
+    -- sections = {
+    --   lualine_a = {
+    --     {
+    --       'mode',
+    --       fmt = function(str)
+    --         return str:sub(1, 1)
+    --       end,
+    --     },
+    --   },
+    --   lualine_b = {
+    --     'branch',
+    --   },
+    -- },
+
     sections = {
-      lualine_a = { 'mode' },
+      lualine_a = {
+        {
+          'mode',
+          fmt = function(str)
+            local f, s = str:match '^(%a)%w*%-?(%a?)'
+            if s ~= '' then
+              return f .. '-' .. s
+            else
+              return f
+            end
+          end,
+        },
+      },
       lualine_b = { 'branch', 'diff', 'diagnostics' },
       lualine_c = { 'filename' },
       lualine_x = { 'encoding', 'fileformat', 'filetype' },
-      lualine_y = { 'progress' },
-      lualine_z = { 'location' },
-
-      -- buffers (shows currently available buffers)
-      -- encoding (file encoding)
-      -- hostname
-      -- searchcount (number of search matches when hlsearch is active)
-      -- selectioncount (number of selected characters or lines)
-      -- tabs (shows currently available tabs)
-      -- windows (shows currently available windows)
-      -- lsp_status (shows active LSPs in the current buffer and a progress spinner)
-
-      -- also have functions as lualine component
-
-      --sections = { lualine_c = { "os.date('%a')", 'data', "require'lsp-status'.status()" } }
+      lualine_y = { 'searchcount', 'selectioncount' },
+      lualine_z = { 'tabs', 'windows', 'lsp_status', 'location' },
     },
+
     inactive_sections = {
-      --     lualine_a = {},
-      --     lualine_b = {},
-      --     lualine_c = {'filename'},
-      --     lualine_x = {'location'},
-      --     lualine_y = {},
-      --     lualine_z = {}
+      -- lualine_a = {},
+      -- lualine_b = {},
+      -- lualine_c = { 'filename' },
+      -- lualine_x = { 'location' },
+      -- lualine_y = {},
+      -- lualine_z = {},
     },
     --   tabline = {},
     --   winbar = {},
@@ -571,6 +585,7 @@ return {
 --   place = {'statusline', 'tabline', 'winbar'}, -- The segment this change applies to.
 --   unhide = false,  -- whether to re-enable lualine again/
 -- })
+--
 --
 --
 --
