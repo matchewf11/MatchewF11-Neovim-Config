@@ -23,6 +23,31 @@ function M.global()
   -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 end
 
+-- which-key
+-- esc to exit
+-- backspace to go back
+-- <C-u/d> to go up and down
+
+-- oil.nvim keymaps
+--keymaps = {
+--     ["g?"] = { "actions.show_help", mode = "n" },
+--     ["<CR>"] = "actions.select",
+--     ["<C-s>"] = { "actions.select", opts = { vertical = true } },
+--     ["<C-h>"] = { "actions.select", opts = { horizontal = true } },
+--     ["<C-t>"] = { "actions.select", opts = { tab = true } },
+--     ["<C-p>"] = "actions.preview",
+--     ["<C-c>"] = { "actions.close", mode = "n" },
+--     ["<C-l>"] = "actions.refresh",
+--     ["-"] = { "actions.parent", mode = "n" },
+--     ["_"] = { "actions.open_cwd", mode = "n" },
+--     ["`"] = { "actions.cd", mode = "n" },
+--     ["~"] = { "actions.cd", opts = { scope = "tab" }, mode = "n" },
+--     ["gs"] = { "actions.change_sort", mode = "n" },
+--     ["gx"] = "actions.open_external",
+--     ["g."] = { "actions.toggle_hidden", mode = "n" },
+--     ["g\\"] = { "actions.toggle_trash", mode = "n" },
+--},
+
 function M.lsp()
   -- lsp keymaps
   -- map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
