@@ -92,3 +92,5 @@ require('lazy').setup {
 -- this file is good just, review plugins from /plugins/ folder
 -- could i just use web-devicons or mini icons
 -- conifg web-devicons
+-- get rid of defualt config if i dont change (get rid of config options to make simple)
+-- do a want a winbar with lualine?

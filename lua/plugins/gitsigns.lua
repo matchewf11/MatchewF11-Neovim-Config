@@ -10,6 +10,7 @@ return {
   -- set up later!!!! with my own
 
   'lewis6991/gitsigns.nvim', -- config later
+  -- gets loaded by status bar
 }
 
 -- -- Adds git related signs to the gutter, as well as utilities for managing changes
