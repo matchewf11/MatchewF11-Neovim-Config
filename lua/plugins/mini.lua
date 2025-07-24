@@ -16,7 +16,6 @@ return {
 -- mini.surround 	Surround actions 	README 	Help file
 
 -- mini.bracketed 	Go forward/backward with square brackets 	README 	Help file
--- mini.extra 	Extra 'mini.nvim' functionality 	README 	Help file
 -- mini.jump 	Jump to next/previous single character 	README 	Help file
 -- mini.jump2d 	Jump within visible lines 	README 	Help file
 -- mini.sessions 	Session management 	README 	Help file
@@ -26,8 +25,6 @@ return {
 -- mini.hipatterns 	Highlight patterns in text 	README 	Help file
 -- mini.indentscope 	Visualize and work with indent scope 	README 	Help file
 -- mini.trailspace 	Trailspace (highlight and remove) 	README 	Help file
-
--- mini.test 	Test Neovim plugins 	README 	Help file
 
 -- MiniMisc.setup_auto_root = function(names, fallback)
 --   names = names or { '.git', 'Makefile' }
@@ -49,7 +46,7 @@ return {
 --     vim.fn.chdir(root)
 --   end)
 --   local augroup = vim.api.nvim_create_augroup('MiniMiscAutoRoot', {})
---   local opts = { group = augroup, nested = true, callback = set_root, desc = 'Find root and change current directory' }
+-- local opts = { group = augroup, nested = true, callback = set_root, desc = 'Find root and change current directory' }
 --   vim.api.nvim_create_autocmd('BufEnter', opts)
 -- end
 

@@ -7,7 +7,6 @@ require('lazy').setup {
 
 -- require 'kickstart.plugins.debug', (more debugger?)
 -- require 'kickstart.plugins.indent_line',
--- require 'kickstart.plugins.lint',
 
 -- opts --keycaps
 -- make sure max out laziness
