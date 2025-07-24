@@ -1,3 +1,5 @@
+-- i am done with this
+
 local function getClients()
   local clients = {}
   for _, client in ipairs(vim.lsp.get_clients { bufnr = 0 }) do

@@ -94,3 +94,7 @@ require('lazy').setup {
 -- conifg web-devicons
 -- get rid of defualt config if i dont change (get rid of config options to make simple)
 -- do a want a winbar with lualine?
+--
+-- dumb down config
+--
+-- use harpoon, windows(buffers) or tabs? (or either), tabline(lualine as well)?
