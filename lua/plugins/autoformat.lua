@@ -20,6 +20,7 @@ return {
     },
     formatters_by_ft = {
       lua = { 'stylua' },
+      go = { 'gofumpt', 'goimports' },
       --["*"] = { "codespell" },
       --["*"] = { "trimwhitespace" },
       --can also stop affter frist or do multiple back to back
@@ -29,5 +30,7 @@ return {
     stylua = {
       -- stylua optios
     },
+    goimports = {},
+    gofumpt = {},
   },
 }

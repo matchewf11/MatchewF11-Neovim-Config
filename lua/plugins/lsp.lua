@@ -53,9 +53,15 @@ local function config(event)
 
   require('mason-tool-installer').setup {
     ensure_installed = {
+      -- lua stuff
       'lua_ls',
       'stylua',
       'luacheck',
+      -- go stuff
+      'gopls',
+      'goimports',
+      'gofumpt',
+      'golangci-lint',
     },
 
     -- 	-- can change: cmd (server start), filetype, capabilites, settings

@@ -28,7 +28,7 @@ return {
       'query',
       'markdown',
       'markdown_inline',
-      -- go and rust maybe
+      'go',
     },
     sync_install = false,
     auto_install = true,

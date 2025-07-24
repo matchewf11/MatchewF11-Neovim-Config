@@ -8,6 +8,24 @@ function M.global()
       vim.hl.on_yank()
     end,
   })
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = 'lua',
+    callback = function()
+      vim.bo.expandtab = true -- Use spaces
+      vim.bo.tabstop = 2 -- Tabs show as n spaces
+      vim.bo.shiftwidth = 2 -- Indent with n spaces
+      vim.bo.softtabstop = 2 -- Tab key inserts 2 spaces
+    end,
+  })
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = 'go',
+    callback = function()
+      vim.bo.expandtab = false
+      vim.bo.tabstop = 4
+      vim.bo.shiftwidth = 4
+      vim.bo.softtabstop = 4
+    end,
+  })
 end
 
 function M.lsp()
