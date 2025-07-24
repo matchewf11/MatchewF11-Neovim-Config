@@ -55,6 +55,7 @@ local function config(event)
     ensure_installed = {
       'lua_ls',
       'stylua',
+      'luacheck',
     },
 
     -- 	-- can change: cmd (server start), filetype, capabilites, settings

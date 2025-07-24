@@ -98,3 +98,7 @@ require('lazy').setup {
 -- dumb down config
 --
 -- use harpoon, windows(buffers) or tabs? (or either), tabline(lualine as well)?
+--
+-- linting (null-ls.nvim)
+-- lua-dev.nvim
+-- nlua.nvim (debugger)
