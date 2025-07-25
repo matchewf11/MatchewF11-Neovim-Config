@@ -1,5 +1,5 @@
 require('lazy').setup {
-  spec = { { import = 'plugins' } },
+  spec = { require 'plugins' },
   install = { colorscheme = { 'kanagawa' } },
   -- ui = { custom_keys = { can look at keybings by pressing ? } },
   change_detection = { notify = false },
@@ -22,10 +22,8 @@ require('lazy').setup {
 -- learn about stylua and lualsp and lua check
 -- get other status bar (get rid of mini.nvim stuff)(lualine.nvim)
 -- toggleterm.nvim or make my own keycaps (want it to be persistant)
--- source %
 -- maybe use docker tools and shell and sql and other stuff
--- edit to make plugins better looking can i give autocmds and keymaps to the right
--- files?
+-- edit to make plugins better looking can i give autocmds and keymaps to the right files?
 
 -- adn otehr stuff!!!!
 -- ensure_installed = {
@@ -71,17 +69,16 @@ require('lazy').setup {
 --   -- Debuggers (DAP)
 --   "delve",         -- Go
 --   "codelldb",      -- Rust, C/C++
---   "debugpy",       -- Python
---   "js-debug-adapter", -- JS/TS
 -- }
---
+
+-- nvim-dap for debugger
+
 -- look into tab feature?, also amek sure config matches (search tabs fzf, hide tabs and otehr stuff)
 -- look into all my plugin configs to see if it affects anythign
 -- look into floating windows from tj
 
 --make sure to look at all plugins keymaps to write down
--- look at all config again (clean adn look for errs)
--- rellook at all config specs for plugins
+-- rellook at all config specs for plugins (clean and look for errs)
 -- copys notes over from mac
 -- config other stuff
 -- reasearch nvim basic keymaps and commands
@@ -89,15 +86,15 @@ require('lazy').setup {
 -- add a bunch of the default keymaps of the plugins i added to the keymap file
 -- :help
 -- this file is good just, review plugins from /plugins/ folder
--- could i just use web-devicons or mini icons
 -- conifg web-devicons
 -- get rid of defualt config if i dont change (get rid of config options to make simple)
 -- do a want a winbar with lualine?
 --
 -- dumb down config
 --
+-- debugger for lua as well?
+--
 -- use harpoon, windows(buffers) or tabs? (or either), tabline(lualine as well)?
 --
--- linting (null-ls.nvim)
 -- lua-dev.nvim
 -- nlua.nvim (debugger)
