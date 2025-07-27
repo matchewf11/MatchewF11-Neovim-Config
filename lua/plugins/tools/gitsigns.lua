@@ -10,6 +10,15 @@ return {
       topdelete = { text = '‾' },
       changedelete = { text = '~' },
       untracked = { text = '┆' },
+      --     opts = {
+      --       signs = {
+      --         add = { text = '+' },
+      --         change = { text = '~' },
+      --         delete = { text = '_' },
+      --         topdelete = { text = '‾' },
+      --         changedelete = { text = '~' },
+      --       },
+      --     },
     },
     signs_staged = {
       add = { text = '┃' },
@@ -27,6 +36,7 @@ return {
     linehl = false, -- `:Gitsigns toggle_linehl`
     word_diff = false, -- `:Gitsigns toggle_word_diff`
     current_line_blame = false, -- `:Gitsigns toggle_current_line_blame`
+    -- :Gitsigns preview_hunk
 
     watch_gitdir = {
       follow_files = true,
@@ -56,93 +66,89 @@ return {
       row = 0,
       col = 1,
     },
-    -- :Gitsigns preview_hunk
-  },
+    on_attach = function(bufnr)
+      --:Gitsigns ---
+      --stage_hunk
+      --reset_hunk
+      --preview_hunk-inline
+      --preview_hunk
+      --nav_hunk next/prev
+      -- blame
+      -- blame_line
+      -- toggle_current_line_blame
+      -- change_base <Revision>
+      -- diffthis <Revisions>
+      -- toggle_word_diff
+      -- setqflist/setloclist target=all/attached/[int]
+      -- set{'o', 'x'}, 'ih' <Cmd>Gitsigns selecthunk<CR>''
+      -- set statusline+=%{get(b:,'gitsigns_status','')}
+      -- show <revision>
+      -- otehr toggles above
 
-  -- require('gitsigns').setup{
-  --   ...
-  --   on_attach = function(bufnr)
-  --     local gitsigns = require('gitsigns')
-  --
-  --     local function map(mode, l, r, opts)
-  --       opts = opts or {}
-  --       opts.buffer = bufnr
-  --       vim.keymap.set(mode, l, r, opts)
-  --     end
-  --
-  --     -- Navigation
-  --     map('n', ']c', function()
-  --       if vim.wo.diff then
-  --         vim.cmd.normal({']c', bang = true})
-  --       else
-  --         gitsigns.nav_hunk('next')
-  --       end
-  --     end)
-  --
-  --     map('n', '[c', function()
-  --       if vim.wo.diff then
-  --         vim.cmd.normal({'[c', bang = true})
-  --       else
-  --         gitsigns.nav_hunk('prev')
-  --       end
-  --     end)
-  --
-  --     -- Actions
-  --     map('n', '<leader>hs', gitsigns.stage_hunk)
-  --     map('n', '<leader>hr', gitsigns.reset_hunk)
-  --
-  --     map('v', '<leader>hs', function()
-  --       gitsigns.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') })
-  --     end)
-  --
-  --     map('v', '<leader>hr', function()
-  --       gitsigns.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
-  --     end)
-  --
-  --     map('n', '<leader>hS', gitsigns.stage_buffer)
-  --     map('n', '<leader>hR', gitsigns.reset_buffer)
-  --     map('n', '<leader>hp', gitsigns.preview_hunk)
-  --     map('n', '<leader>hi', gitsigns.preview_hunk_inline)
-  --
-  --     map('n', '<leader>hb', function()
-  --       gitsigns.blame_line({ full = true })
-  --     end)
-  --
-  --     map('n', '<leader>hd', gitsigns.diffthis)
-  --
-  --     map('n', '<leader>hD', function()
-  --       gitsigns.diffthis('~')
-  --     end)
-  --
-  --     map('n', '<leader>hQ', function() gitsigns.setqflist('all') end)
-  --     map('n', '<leader>hq', gitsigns.setqflist)
-  --
-  --     -- Toggles
-  --     map('n', '<leader>tb', gitsigns.toggle_current_line_blame)
-  --     map('n', '<leader>tw', gitsigns.toggle_word_diff)
-  --
-  --     -- Text object
-  --     map({'o', 'x'}, 'ih', gitsigns.select_hunk)
-  --   end
-  -- }
+      local gitsigns = require 'gitsigns'
+
+      local function map(mode, l, r, opts)
+        opts = opts or {}
+        opts.buffer = bufnr
+        vim.keymap.set(mode, l, r, opts)
+      end
+
+      -- Navigation
+      -- map('n', ']c', function()
+      --   if vim.wo.diff then
+      --     vim.cmd.normal { ']c', bang = true }
+      --   else
+      --     gitsigns.nav_hunk 'next'
+      --   end
+      -- end)
+      --
+      -- map('n', '[c', function()
+      --   if vim.wo.diff then
+      --     vim.cmd.normal { '[c', bang = true }
+      --   else
+      --     gitsigns.nav_hunk 'prev'
+      --   end
+      -- end)
+
+      -- Actions
+      map('n', '<leader>hp', gitsigns.preview_hunk, { desc = '[h]unk [p]review' })
+      map('n', '<leader>hs', gitsigns.stage_hunk, { desc = '[h]unk [s]tage' })
+
+      -- Actions
+      -- map('n', '<leader>hs', gitsigns.stage_hunk)
+      -- map('n', '<leader>hr', gitsigns.reset_hunk)
+      -- map('v', '<leader>hs', function()
+      --   gitsigns.stage_hunk { vim.fn.line '.', vim.fn.line 'v' }
+      -- end)
+      -- map('v', '<leader>hr', function()
+      --   gitsigns.reset_hunk { vim.fn.line '.', vim.fn.line 'v' }
+      -- end)
+      -- map('n', '<leader>hS', gitsigns.stage_buffer)
+      -- map('n', '<leader>hR', gitsigns.reset_buffer)
+      -- map('n', '<leader>hp', gitsigns.preview_hunk)
+      -- map('n', '<leader>hi', gitsigns.preview_hunk_inline)
+      -- map('n', '<leader>hb', function()
+      --   gitsigns.blame_line { full = true }
+      -- end)
+      -- map('n', '<leader>hd', gitsigns.diffthis)
+      -- map('n', '<leader>hD', function()
+      --   gitsigns.diffthis '~'
+      -- end)
+      -- map('n', '<leader>hQ', function()
+      --   gitsigns.setqflist 'all'
+      -- end)
+      -- map('n', '<leader>hq', gitsigns.setqflist)
+
+      -- Toggles
+      -- map('n', '<leader>tb', gitsigns.toggle_current_line_blame)
+      -- map('n', '<leader>tw', gitsigns.toggle_word_diff)
+      --
+      -- Text object
+      -- map({ 'o', 'x' }, 'ih', gitsigns.select_hunk)
+    end,
+  },
 }
 
--- look at all features
--- look at all cmds and keymaps
-
--- adds git related signs to gutter, mangages changes too
--- research how to use this
---   signs, hunk-actions, blame, diff, quickfix/loacation-list
---   text-object, status line integration, diff revisions of buffs
--- look up how to config
-
--- i jsut ripped the kickstart conifg
--- set up later!!!! with my own
-
--- -- Adds git related signs to the gutter, as well as utilities for managing changes
--- -- NOTE: gitsigns is already included in init.lua but contains only the base
--- -- config. This will add also the recommended keymaps.
---
 -- return {
 --   {
 --     'lewis6991/gitsigns.nvim',
@@ -200,29 +206,3 @@ return {
 --     },
 --   },
 -- }
-
---   -- See `:help gitsigns` to understand what the configuration keys do
---   { -- Adds git related signs to the gutter, as well as utilities for managing changes
---     'lewis6991/gitsigns.nvim',
---     opts = {
---       signs = {
---         add = { text = '+' },
---         change = { text = '~' },
---         delete = { text = '_' },
---         topdelete = { text = '‾' },
---         changedelete = { text = '~' },
---       },
---     },
---   },
---
---
---
---   signs
---   hunk actiosn
---   blame
---   diff
---   show hunks quickfix/location list
---   text object
---   status line integration
---   show different revisions of buffers
---   look at keymaps

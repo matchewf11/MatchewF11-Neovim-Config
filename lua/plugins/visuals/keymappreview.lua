@@ -6,6 +6,7 @@ return {
     delay = 0,
     spec = {
       { '<leader>s', group = '[s]earch' },
+      { '<leader>h', group = '[h]unk' },
     },
   },
 }
