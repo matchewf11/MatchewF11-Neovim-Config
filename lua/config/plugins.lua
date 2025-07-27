@@ -9,26 +9,18 @@ require('lazy').setup {
 -- require 'kickstart.plugins.indent_line',
 
 -- opts --keycaps
--- make sure max out laziness
 -- render markdown
--- go, rust, lua
-
 -- func that changes working dir
--- group plugins by files or dir
--- look thorugh config file to clean things up like keymaps and stuff
---
--- work with picom to fix tearing
--- keep all plugins as minial as possible with config and stuff and keymaps (try to get rid of stuff)
--- learn about stylua and lualsp and lua check
--- get other status bar (get rid of mini.nvim stuff)(lualine.nvim)
--- toggleterm.nvim or make my own keycaps (want it to be persistant)
--- maybe use docker tools and shell and sql and other stuff
--- edit to make plugins better looking can i give autocmds and keymaps to the right files?
 
--- adn otehr stuff!!!!
--- ensure_installed = {
+-- minial config and plugins and keymaps and max-lazy
+-- maybe use docker tools and shell and sql and other stuff
+
+-- learn more about (config too)
+--  go lsp/fmt's/linter/debugger
+--  lua lsp/fmt/linter/debugger
+
+-- and other stuff!!!!
 --   -- LSPs
---   "gopls",         -- Go
 --   "rust_analyzer", -- Rust
 --   "html",          -- HTML
 --   "cssls",         -- CSS
@@ -49,8 +41,6 @@ require('lazy').setup {
 --   -- Formatters
 --   "prettier",      -- Web (HTML, CSS, etc.)
 --   "shfmt",         -- Shell
---   "goimports",     -- Go
---   "gofumpt",       -- Go
 --   "rustfmt",       -- Rust
 --   "black",         -- Python
 --   "isort",         -- Python
@@ -61,7 +51,6 @@ require('lazy').setup {
 --   -- Linters
 --   "shellcheck",    -- Shell
 --   "luacheck",      -- Lua
---   "golangci-lint", -- Go
 --   "flake8",        -- Python
 --   "eslint_d",      -- JavaScript/TypeScript
 --   "markdownlint",  -- Markdown
@@ -69,13 +58,11 @@ require('lazy').setup {
 --   -- Debuggers (DAP)
 --   "delve",         -- Go
 --   "codelldb",      -- Rust, C/C++
--- }
 
 -- nvim-dap for debugger
 
 -- look into tab feature?, also amek sure config matches (search tabs fzf, hide tabs and otehr stuff)
 -- look into all my plugin configs to see if it affects anythign
--- look into floating windows from tj
 
 --make sure to look at all plugins keymaps to write down
 -- rellook at all config specs for plugins (clean and look for errs)
@@ -85,16 +72,12 @@ require('lazy').setup {
 -- config firefox as well
 -- add a bunch of the default keymaps of the plugins i added to the keymap file
 -- :help
--- this file is good just, review plugins from /plugins/ folder
 -- conifg web-devicons
 -- get rid of defualt config if i dont change (get rid of config options to make simple)
 -- do a want a winbar with lualine?
---
--- dumb down config
---
--- debugger for lua as well?
 --
 -- use harpoon, windows(buffers) or tabs? (or either), tabline(lualine as well)?
 --
 -- lua-dev.nvim
 -- nlua.nvim (debugger)
+-- is there a go-doc like lua doc for treesitter

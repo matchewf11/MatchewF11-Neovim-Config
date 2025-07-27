@@ -18,7 +18,7 @@ return {
   main = 'nvim-treesitter.configs',
   opts = {
     ensure_installed = {
-      --"c",
+      'c',
       'diff',
       'html',
       'lua',
@@ -29,6 +29,7 @@ return {
       'markdown',
       'markdown_inline',
       'go',
+      -- 'gomod', 'gosum', 'gowork', 'comment'
     },
     sync_install = false,
     auto_install = true,

@@ -1,5 +1,4 @@
-local function config(event)
-  _ = event -- get rid of warning
+local function config() -- can include event
   require('config.autocmds').lsp()
   vim.diagnostic.config {
     severity_sort = true,
@@ -12,33 +11,10 @@ local function config(event)
       },
     },
 
-    -- virtual_text = {
-    --   spacing = 1,
-    --   format = function(diagnostic)
-    --     local icons = {
-    --       [vim.diagnostic.severity.ERROR] = " ",
-    --       [vim.diagnostic.severity.WARN]  = " ",
-    --       [vim.diagnostic.severity.INFO]  = " ",
-    --       [vim.diagnostic.severity.HINT]  = "󰌵 ",
-    --     }
-    --     local icon = icons[diagnostic.severity] or ""
-    --     local source = diagnostic.source or ""
-    --     return string.format("%s%s [%s]", icon, diagnostic.message, source)
-    --   end,
-    -- }
-
     virtual_text = {
       source = 'if_many', -- only show source if more than one lsp
       spacing = 1, -- padding between code and text
       format = function(diagnostic)
-        -- use this for custom messages
-        -- local diagnostic_message = {
-        --   [vim.diagnostic.severity.ERROR] = diagnostic.message,
-        --   [vim.diagnostic.severity.WARN] = diagnostic.message,
-        --   [vim.diagnostic.severity.INFO] = diagnostic.message,
-        --   [vim.diagnostic.severity.HINT] = diagnostic.message,
-        -- }
-        -- return diagnostic_message[diagnostic.severity]
         return diagnostic.message
       end,
     },
@@ -49,7 +25,30 @@ local function config(event)
   }
 
   -- config the stuff i install later?
-  -- like in kickstart
+  -- 	-- can change: cmd (server start), filetype, capabilites, settings
+  -- 	-- opts = {
+  -- 	-- 	ensure_installed = {
+  -- 	-- 		'lua_ls',
+  -- 	-- 	}
+  -- 	--
+  -- 	-- },
+  -- 	config = function()
+  -- 		require('mason-tool-installer').setup {
+  -- 		    ensure_installed = {
+  -- 		      'lua_ls',
+  -- 		      -- 'stylua',
+  -- 		      --'stylua',
+  -- 		      --'luacheck',
+  -- 		      --'lua_ls',   -- lua lsp
+  -- 		      -- Lua={completions={callSnippet='Replace'},diagnostive={disable={'missings-fiedls'}},
+  -- 		      --'stylua',   -- lua fmt
+  -- 		      --'luacheck', -- lua linting
+  -- 		    },
+  -- 		    --auto_update = true, -- does this do anything given my setup
+  -- 		    --run_on_start = true,
+  -- 		}
+  -- 	end,
+  -- }
 
   require('mason-tool-installer').setup {
     ensure_installed = {
@@ -63,41 +62,20 @@ local function config(event)
       'gofumpt',
       'golangci-lint',
     },
-
-    -- 	-- can change: cmd (server start), filetype, capabilites, settings
-    -- 	-- opts = {
-    -- 	-- 	ensure_installed = {
-    -- 	-- 		'lua_ls',
-    -- 	-- 	}
-    -- 	--
-    -- 	-- },
-    -- 	config = function()
-    -- 		require('mason-tool-installer').setup {
-    -- 		    ensure_installed = {
-    -- 		      'lua_ls',
-    -- 		      -- 'stylua',
-    -- 		      --'stylua',
-    -- 		      --'luacheck',
-    -- 		      --'lua_ls',   -- lua lsp
-    -- 		      -- Lua={completions={callSnippet='Replace'},diagnostive={disable={'missings-fiedls'}},
-    -- 		      --'stylua',   -- lua fmt
-    -- 		      --'luacheck', -- lua linting
-    -- 		    },
-    -- 		    --auto_update = true, -- does this do anything given my setup
-    -- 		    --run_on_start = true,
-    -- 		}
-    -- 	end,
-    -- }
   }
 
+  -- -- how do i know if this is working
+  -- -- is this structure right
+  -- -- does it still 'ensure installed' correctly
+  -- make sure ensure_installed still works
   local capabilities = require('blink.cmp').get_lsp_capabilities()
   require('mason-lspconfig').setup { -- how do i know if this is working
     handlers = {
       function(server_name)
         -- this for config
-        --local server = servers[server_name] or {}
-        --server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-        --require('lspconfig')[server_name].setup(server)
+        -- local server = servers[server_name] or {}
+        -- server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+        -- require('lspconfig')[server_name].setup(server)
         -- do i set up something here?
         --require('lspconfig')[server].setup(server_namee)
         require('lspconfig')[server_name].setup {
@@ -132,7 +110,6 @@ return {
 -- look for other cool stuff in mason (lsp, dap, linters, formatters)
 -- look for rnadom languages markdown, bash, sql, docker (code spell)(+ generic stuff)
 -- config stuff that i add
--- lua with types plug in?
 
 --    'lua-language-server', 'vim-language-server', 'stylua', 'shellcheck',
 --    'editorconfig-checker','gofumpt', 'golines', 'gomodifytags', 'gotests',
