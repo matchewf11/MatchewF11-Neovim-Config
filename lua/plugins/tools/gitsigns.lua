@@ -93,46 +93,27 @@ return {
       end
 
       -- Navigation
-      -- map('n', ']c', function()
-      --   if vim.wo.diff then
-      --     vim.cmd.normal { ']c', bang = true }
-      --   else
-      --     gitsigns.nav_hunk 'next'
-      --   end
-      -- end)
-      --
-      -- map('n', '[c', function()
-      --   if vim.wo.diff then
-      --     vim.cmd.normal { '[c', bang = true }
-      --   else
-      --     gitsigns.nav_hunk 'prev'
-      --   end
-      -- end)
+      map('n', ']c', function()
+        if vim.wo.diff then
+          vim.cmd.normal { ']c', bang = true }
+        else
+          gitsigns.nav_hunk 'next'
+        end
+      end, { desc = 'next hunk/diff-chunk' })
 
-      -- Navigation
+      map('n', '[c', function()
+        if vim.wo.diff then
+          vim.cmd.normal { '[c', bang = true }
+        else
+          gitsigns.nav_hunk 'prev'
+        end
+      end, { desc = 'prev hunk/diff-chunk' })
 
       -- Actions
       map('n', '<leader>hp', gitsigns.preview_hunk, { desc = '[h]unk [p]review' })
       map('n', '<leader>hs', gitsigns.stage_hunk, { desc = '[h]unk [s]tage' })
       map('n', '<leader>hr', gitsigns.reset_hunk, { desc = '[h]unk [r]eset' })
 
-      -- -- Navigation
-      -- map('n', ']c', function()
-      --   if vim.wo.diff then
-      --     vim.cmd.normal { ']c', bang = true }
-      --   else
-      --     gitsigns.nav_hunk 'next'
-      --   end
-      -- end)
-      --
-      -- map('n', '[c', function()
-      --   if vim.wo.diff then
-      --     vim.cmd.normal { '[c', bang = true }
-      --   else
-      --     gitsigns.nav_hunk 'prev'
-      --   end
-      -- end)
-      --
       -- -- Actions
       -- map('n', '<leader>hs', gitsigns.stage_hunk)
       -- map('n', '<leader>hr', gitsigns.reset_hunk)
@@ -232,3 +213,5 @@ return {
 --     },
 --   },
 -- }
+--
+-- make kepmap to move to next or prev diagnostic? '[d', '[D', ']d', ']D'

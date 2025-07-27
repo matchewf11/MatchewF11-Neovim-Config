@@ -5,9 +5,6 @@ require('lazy').setup {
   change_detection = { notify = false },
 }
 
--- require 'kickstart.plugins.debug', (more debugger?)
--- require 'kickstart.plugins.indent_line',
-
 -- opts --keycaps
 -- render markdown
 -- func that changes working dir
@@ -59,8 +56,6 @@ require('lazy').setup {
 --   "delve",         -- Go
 --   "codelldb",      -- Rust, C/C++
 
--- nvim-dap for debugger
-
 -- look into tab feature?, also amek sure config matches (search tabs fzf, hide tabs and otehr stuff)
 -- look into all my plugin configs to see if it affects anythign
 
@@ -80,4 +75,3 @@ require('lazy').setup {
 --
 -- lua-dev.nvim
 -- nlua.nvim (debugger)
--- is there a go-doc like lua doc for treesitter
