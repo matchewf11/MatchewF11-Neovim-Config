@@ -25,7 +25,7 @@ return {
       'vim',
       'vimdoc',
       'query',
-      'make',
+      -- 'make',
       'markdown',
       'markdown_inline',
       'go',

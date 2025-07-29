@@ -31,6 +31,6 @@ return {
     stylua = {},
     goimports = {},
     gofumpt = {},
-    ['clang-format'] = {},
+    --['clang-format'] = {},
   },
 }
