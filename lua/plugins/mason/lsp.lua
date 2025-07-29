@@ -12,16 +12,14 @@ local function config() -- can include event
     },
 
     virtual_text = {
-      source = 'if_many', -- only show source if more than one lsp
-      spacing = 1, -- padding between code and text
+      source = 'if_many',
+      spacing = 1,
       format = function(diagnostic)
         return diagnostic.message
       end,
     },
 
-    --   float = { border = 'rounded', source = 'if_many' },
-    --   underline = { severity = vim.diagnostic.severity.ERROR }, -- can change this .WARN
-    --   update_in_instert = false? -- this is random thing i added
+    -- float = { border = 'rounded' },
   }
 
   -- config the stuff i install later?
@@ -61,12 +59,18 @@ local function config() -- can include event
       'goimports',
       'gofumpt',
       'golangci-lint',
+      -- c stuff
+      -- 'clangd',
+      -- 'clang-format',
+      -- --'cpplint',
+      -- -- make stuff
+      -- 'checkmake',
     },
   }
 
-  -- -- how do i know if this is working
-  -- -- is this structure right
-  -- -- does it still 'ensure installed' correctly
+  -- how do i know if this is working
+  -- is this structure right
+  -- does it still 'ensure installed' correctly
   -- make sure ensure_installed still works
   local capabilities = require('blink.cmp').get_lsp_capabilities()
   require('mason-lspconfig').setup { -- how do i know if this is working
@@ -106,9 +110,8 @@ return {
 }
 
 --   make sure to look for stuff for every language in mason and ask chat for outside of mason
---ensure that lua, go, and rust lsp gets downloaded (and other cools stuff)
--- look for other cool stuff in mason (lsp, dap, linters, formatters)
--- look for rnadom languages markdown, bash, sql, docker (code spell)(+ generic stuff)
+-- look for other stuff(lsp, dap, linters, formatters)(add to treesitter)
+-- look for random languages markdown, bash, sql, docker (code spell)(+ generic stuff)
 -- config stuff that i add
 
 --    'lua-language-server', 'vim-language-server', 'stylua', 'shellcheck',
@@ -116,14 +119,8 @@ return {
 --    'impl', 'json-to-struct', 'luacheck', 'misspell', 'revive', 'shellcheck',
 --    'shfmt', 'staticcheck', 'vint',
 
--- also find a way to run luacheck
 -- look into textobject again, context, and otehr mini stuff i skipped
 
--- make like a file that makes it easy to add langues with customizations
--- like with treesitter, lsp, fmt, linting, adn otehr stuff
-
--- -- Other popular tooling
--- 'gopls',         -- Go
 -- 'rust_analyzer', -- Rust
 -- 'clangd',        -- C/C++
 -- 'bashls',        -- Shell
@@ -138,3 +135,5 @@ return {
 -- 'taplo',         -- TOML
 -- 'sqls',          -- SQL
 -- 'lemminx',       -- XML
+-- c debugger?
+-- look at more mason stuff

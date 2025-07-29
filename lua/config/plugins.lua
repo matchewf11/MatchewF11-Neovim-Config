@@ -75,3 +75,4 @@ require('lazy').setup {
 --
 -- lua-dev.nvim
 -- nlua.nvim (debugger)
+-- i did some C stuff as well config it, and maybe debugger?

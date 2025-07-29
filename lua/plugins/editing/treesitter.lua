@@ -8,7 +8,6 @@ end
 
 -- langs that are janky
 local regex_langs = {}
-
 -- highlight, edit, and naviage code
 return {
   'nvim-treesitter/nvim-treesitter',
@@ -18,7 +17,7 @@ return {
   main = 'nvim-treesitter.configs',
   opts = {
     ensure_installed = {
-      'c',
+      --'c',
       'diff',
       'html',
       'lua',
@@ -26,9 +25,11 @@ return {
       'vim',
       'vimdoc',
       'query',
+      'make',
       'markdown',
       'markdown_inline',
       'go',
+      'toml',
       -- 'gomod', 'gosum', 'gowork', 'comment'
     },
     sync_install = false,
