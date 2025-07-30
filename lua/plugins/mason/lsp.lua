@@ -10,7 +10,6 @@ local function config() -- can include event
         [vim.diagnostic.severity.HINT] = '󰌶 ',
       },
     },
-
     virtual_text = {
       source = 'if_many',
       spacing = 1,
@@ -59,12 +58,11 @@ local function config() -- can include event
       'goimports',
       'gofumpt',
       'golangci-lint',
-      -- c stuff
-      -- 'clangd',
-      -- 'clang-format',
-      -- --'cpplint',
-      -- -- make stuff
-      -- 'checkmake',
+      -- c stuff (keep this?)
+      'clangd',
+      'clang-format',
+      -- make
+      'checkmake',
     },
   }
 
@@ -118,8 +116,6 @@ return {
 --    'editorconfig-checker','gofumpt', 'golines', 'gomodifytags', 'gotests',
 --    'impl', 'json-to-struct', 'luacheck', 'misspell', 'revive', 'shellcheck',
 --    'shfmt', 'staticcheck', 'vint',
-
--- look into textobject again, context, and otehr mini stuff i skipped
 
 -- 'rust_analyzer', -- Rust
 -- 'clangd',        -- C/C++

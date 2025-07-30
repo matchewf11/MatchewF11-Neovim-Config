@@ -21,16 +21,15 @@ return {
     formatters_by_ft = {
       lua = { 'stylua' },
       go = { 'gofumpt', 'goimports' },
-      --c = { 'clang-format' },
+      c = { 'clang-format' },
       --["*"] = { "codespell" },
       --["*"] = { "trimwhitespace" },
-      --can also stop affter frist or do multiple back to back
     },
   },
   formatters = {
     stylua = {},
     goimports = {},
     gofumpt = {},
-    --['clang-format'] = {},
+    ['clang-format'] = {},
   },
 }

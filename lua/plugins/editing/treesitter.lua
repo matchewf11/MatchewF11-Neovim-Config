@@ -17,7 +17,7 @@ return {
   main = 'nvim-treesitter.configs',
   opts = {
     ensure_installed = {
-      --'c',
+      'c',
       'diff',
       'html',
       'lua',
@@ -25,7 +25,7 @@ return {
       'vim',
       'vimdoc',
       'query',
-      -- 'make',
+      'make',
       'markdown',
       'markdown_inline',
       'go',
