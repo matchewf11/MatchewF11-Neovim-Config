@@ -47,6 +47,7 @@ local function config() -- can include event
   -- 	end,
   -- }
 
+  -- look into plugins for each language
   require('mason-tool-installer').setup {
     ensure_installed = {
       -- lua stuff
@@ -63,6 +64,14 @@ local function config() -- can include event
       'clang-format',
       -- make
       'checkmake',
+      -- haskell
+      'hls',
+      'hlint',
+      --'haskell-debug-adapter', -- not owrking?
+      -- rust (look into plugins)
+      'rust_analyzer', -- lsp
+      'bacon', -- linter
+      -- rustfmt through cargo
     },
   }
 
@@ -133,3 +142,4 @@ return {
 -- 'lemminx',       -- XML
 -- c debugger?
 -- look at more mason stuff
+-- haskell debugging btw

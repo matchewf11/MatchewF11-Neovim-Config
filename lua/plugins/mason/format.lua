@@ -22,6 +22,7 @@ return {
       lua = { 'stylua' },
       go = { 'gofumpt', 'goimports' },
       c = { 'clang-format' },
+      rust = { 'rustfmt' },
       --["*"] = { "codespell" },
       --["*"] = { "trimwhitespace" },
     },
@@ -31,5 +32,6 @@ return {
     goimports = {},
     gofumpt = {},
     ['clang-format'] = {},
+    rustfmt = {},
   },
 }

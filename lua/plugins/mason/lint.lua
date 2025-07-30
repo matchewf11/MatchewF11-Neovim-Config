@@ -8,6 +8,8 @@ return {
       go = { 'golangcilint' },
       c = { 'clangtidy' },
       make = { 'checkmake' },
+      haskell = { 'hlint' },
+      rust = { 'clippy' },
     }
     local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })
     vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {

@@ -20,6 +20,8 @@ return {
       'c',
       'diff',
       'html',
+      'haskell',
+      'rust',
       'lua',
       'luadoc',
       'vim',

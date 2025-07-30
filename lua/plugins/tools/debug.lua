@@ -1,6 +1,8 @@
 return {
   'mfussenegger/nvim-dap',
   dependencies = {
+
+    -- haskell thing? lua thing, go thing, c thing, rust thing
     -- Creates a beautiful debugger UI
     -- 'rcarriga/nvim-dap-ui',
 
