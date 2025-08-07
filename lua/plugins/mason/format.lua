@@ -23,6 +23,8 @@ return {
       go = { 'gofumpt', 'goimports' },
       c = { 'clang-format' },
       rust = { 'rustfmt' },
+      toml = { 'taplo' },
+      ocaml = { 'ocamlformat' },
       --["*"] = { "codespell" },
       --["*"] = { "trimwhitespace" },
     },
@@ -33,5 +35,6 @@ return {
     gofumpt = {},
     ['clang-format'] = {},
     rustfmt = {},
+    ocamlformat = {},
   },
 }

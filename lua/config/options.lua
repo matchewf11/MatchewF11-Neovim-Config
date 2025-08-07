@@ -25,3 +25,5 @@ vim.o.inccommand = 'nosplit'
 vim.o.cursorline = true
 vim.o.scrolloff = 10
 vim.o.confirm = true
+
+vim.o.guicursor = 'a:block'

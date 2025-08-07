@@ -64,14 +64,11 @@ local function config() -- can include event
       'clang-format',
       -- make
       'checkmake',
-      -- haskell
-      'hls',
-      'hlint',
-      --'haskell-debug-adapter', -- not owrking?
       -- rust (look into plugins)
       'rust_analyzer', -- lsp
       'bacon', -- linter
-      -- rustfmt through cargo
+      -- toml
+      'taplo',
     },
   }
 
@@ -95,6 +92,14 @@ local function config() -- can include event
       end,
     },
   }
+
+  local lspconfig = require 'lspconfig'
+
+  -- set up personal languages
+  lspconfig.ocamllsp.setup {
+    capabilities = capabilities,
+  }
+
   -- auto installation? = false in kcistart
   -- is turning off auto install necessary
 end

@@ -7,7 +7,8 @@ local large_file = function(lang, buf) -- disables for large files
 end
 
 -- langs that are janky
-local regex_langs = {}
+local regex_langs = { 'ocaml' }
+
 -- highlight, edit, and naviage code
 return {
   'nvim-treesitter/nvim-treesitter',
@@ -16,24 +17,6 @@ return {
   build = ':TSUpdate',
   main = 'nvim-treesitter.configs',
   opts = {
-    ensure_installed = {
-      'c',
-      'diff',
-      'html',
-      'haskell',
-      'rust',
-      'lua',
-      'luadoc',
-      'vim',
-      'vimdoc',
-      'query',
-      'make',
-      'markdown',
-      'markdown_inline',
-      'go',
-      'toml',
-      -- 'gomod', 'gosum', 'gowork', 'comment'
-    },
     sync_install = false,
     auto_install = true,
     highlight = {

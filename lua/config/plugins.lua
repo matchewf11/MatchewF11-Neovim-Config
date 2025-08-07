@@ -76,3 +76,5 @@ require('lazy').setup {
 -- lua-dev.nvim
 -- nlua.nvim (debugger)
 -- i did some C stuff as well config it, and maybe debugger?
+-- look into lsp stuff and debuggers for all langauges
+-- ensure build tool fmting/lsp is installed
