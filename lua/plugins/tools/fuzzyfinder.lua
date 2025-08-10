@@ -66,6 +66,13 @@ return {
       end,
       desc = '[s]earch [L]ines (buffers)',
     },
+    -- {
+    --   '<leader>sq',
+    --   function()
+    --     require('fzf-lua').quickfix()
+    --   end,
+    --   desc = '[s]earch [q]uickfix',
+    -- },
   },
 }
 
