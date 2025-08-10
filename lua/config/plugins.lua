@@ -1,3 +1,5 @@
+-- auto update?
+
 require('lazy').setup {
   spec = { require 'plugins' },
   install = { colorscheme = { 'kanagawa' } },

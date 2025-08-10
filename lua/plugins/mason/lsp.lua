@@ -1,3 +1,5 @@
+-- auto update mason stuff?
+
 local function config() -- can include event
   require('config.autocmds').lsp()
   vim.diagnostic.config {
@@ -17,8 +19,6 @@ local function config() -- can include event
         return diagnostic.message
       end,
     },
-
-    -- float = { border = 'rounded' },
   }
 
   -- config the stuff i install later?
@@ -37,7 +37,7 @@ local function config() -- can include event
   -- 		      --'stylua',
   -- 		      --'luacheck',
   -- 		      --'lua_ls',   -- lua lsp
-  -- 		      -- Lua={completions={callSnippet='Replace'},diagnostive={disable={'missings-fiedls'}},
+  -- 		      -- Lua={completions={callSnippet='Replace'},diagnostive={disable={'missings-fields'}},
   -- 		      --'stylua',   -- lua fmt
   -- 		      --'luacheck', -- lua linting
   -- 		    },
@@ -48,6 +48,7 @@ local function config() -- can include event
   -- }
 
   -- look into plugins for each language
+  -- config stuff?
   require('mason-tool-installer').setup {
     ensure_installed = {
       -- lua stuff
@@ -59,16 +60,16 @@ local function config() -- can include event
       'goimports',
       'gofumpt',
       'golangci-lint',
-      -- c stuff (keep this?)
+      -- c stuff
       'clangd',
       'clang-format',
-      -- make
-      'checkmake',
-      -- rust (look into plugins)
-      'rust_analyzer', -- lsp
-      'bacon', -- linter
+      -- rust
+      'rust_analyzer',
+      'bacon',
       -- toml
       'taplo',
+      -- make
+      'checkmake',
     },
   }
 
@@ -76,6 +77,7 @@ local function config() -- can include event
   -- is this structure right
   -- does it still 'ensure installed' correctly
   -- make sure ensure_installed still works
+  local lspconfig = require 'lspconfig'
   local capabilities = require('blink.cmp').get_lsp_capabilities()
   require('mason-lspconfig').setup { -- how do i know if this is working
     handlers = {
@@ -86,18 +88,19 @@ local function config() -- can include event
         -- require('lspconfig')[server_name].setup(server)
         -- do i set up something here?
         --require('lspconfig')[server].setup(server_namee)
-        require('lspconfig')[server_name].setup {
+        lspconfig[server_name].setup {
           capabilities = capabilities,
         }
       end,
     },
   }
 
-  local lspconfig = require 'lspconfig'
-
   -- set up personal languages
   lspconfig.ocamllsp.setup {
     capabilities = capabilities,
+    -- cmd
+    -- filetype
+    -- settings
   }
 
   -- auto installation? = false in kcistart
@@ -110,7 +113,6 @@ return {
   -- lazy = true,                            -- does lazy work in this context
   -- event = { 'BufReadPre', 'BufNewFile' }, -- get rid of vary lazy?
   -- cmd = { 'Mason' },
-
   -- install with keys
   dependencies = {
     { 'mason-org/mason.nvim', opts = {} },
@@ -121,30 +123,19 @@ return {
   config = config,
 }
 
---   make sure to look for stuff for every language in mason and ask chat for outside of mason
--- look for other stuff(lsp, dap, linters, formatters)(add to treesitter)
--- look for random languages markdown, bash, sql, docker (code spell)(+ generic stuff)
 -- config stuff that i add
+-- lookm more into stuff i added
 
---    'lua-language-server', 'vim-language-server', 'stylua', 'shellcheck',
---    'editorconfig-checker','gofumpt', 'golines', 'gomodifytags', 'gotests',
---    'impl', 'json-to-struct', 'luacheck', 'misspell', 'revive', 'shellcheck',
---    'shfmt', 'staticcheck', 'vint',
+--LSP
+-- ast-grep, autotools-ls, bacon_ls, bashls, basicsls, cspell, diagnosticsls, dockercompose langauge server, docker-lagnuage-server, dockerls, dprint, efm, emmylua_ls, golangci-lint-langserver, grammerly-langugageserver, harper-ls, ltex-ls, systemd-ls,, termux-ls, textlsp, tombi(is mine better or both)
 
--- 'rust_analyzer', -- Rust
--- 'clangd',        -- C/C++
--- 'bashls',        -- Shell
--- 'dockerls',      -- Docker
--- 'jsonls',        -- JSON
--- 'yamlls',        -- YAML
--- 'html',          -- HTML
--- 'cssls',         -- CSS
--- 'tsserver',      -- JS/TS
--- 'eslint',        -- JS/TS lint
--- 'marksman',      -- Markdown
--- 'taplo',         -- TOML
--- 'sqls',          -- SQL
--- 'lemminx',       -- XML
--- c debugger?
--- look at more mason stuff
--- haskell debugging btw
+-- c,
+-- debugger (more for C, C++, Rust)
+-- bash-debug-dapteer, codelldb, delve, go-debug-dabter, ocamlearlybird
+-- mock and local lua
+
+-- linter
+-- ast-grep, codespell, commitlint, cpplint, cspell, dotenv-linter, gitlint, gospel, hadolint, misspell, revive, selene, shellcheck, shellharden, semgrep, staticcheck, systemdlint, textlint, typos
+
+-- formatter
+--beautysh, crlfmt, gci, goimports-reviser, golines, go modify tages, gotests, luaformatter, ocaml_format, shellharden, shfmt, tombi, yamlfix, yamlfmt

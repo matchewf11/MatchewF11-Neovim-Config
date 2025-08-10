@@ -110,9 +110,9 @@ return {
       end, { desc = 'prev hunk/diff-chunk' })
 
       -- Actions
-      map('n', '<leader>hp', gitsigns.preview_hunk, { desc = '[h]unk [p]review' })
-      map('n', '<leader>hs', gitsigns.stage_hunk, { desc = '[h]unk [s]tage' })
-      map('n', '<leader>hr', gitsigns.reset_hunk, { desc = '[h]unk [r]eset' })
+      map('n', '<leader>gp', gitsigns.preview_hunk, { desc = '[g]it [p]review' })
+      map('n', '<leader>gs', gitsigns.stage_hunk, { desc = '[g]it [s]tage' })
+      map('n', '<leader>gr', gitsigns.reset_hunk, { desc = '[g]it [r]eset' })
 
       -- -- Actions
       -- map('n', '<leader>hs', gitsigns.stage_hunk)
