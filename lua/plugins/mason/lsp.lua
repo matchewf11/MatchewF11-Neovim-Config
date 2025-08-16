@@ -1,5 +1,4 @@
--- auto update mason stuff?
-
+-- auto update?
 local function config() -- can include event
   require('config.autocmds').lsp()
   vim.diagnostic.config {
@@ -139,3 +138,7 @@ return {
 
 -- formatter
 --beautysh, crlfmt, gci, goimports-reviser, golines, go modify tages, gotests, luaformatter, ocaml_format, shellharden, shfmt, tombi, yamlfix, yamlfmt
+
+-- docker
+-- 'dockerls',
+-- 'hadolint',

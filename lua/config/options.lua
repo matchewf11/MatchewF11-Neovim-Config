@@ -30,37 +30,56 @@ vim.o.guicursor = 'a:block'
 
 vim.o.laststatus = 2
 
-function _G.diagnostic_summary()
-  local diags = vim.diagnostic.get(nil) -- all buffers, 0 for only curr
-  local counts = { 0, 0, 0, 0 } -- error, warn, info, hint
-  for _, d in ipairs(diags) do
+function _G.statusline()
+  local lsp_get_clients = vim.lsp.get_clients
+  local diag_get = vim.diagnostic.get
+  local severity = vim.diagnostic.severity
+  local client_names = {}
+  for _, client in ipairs(lsp_get_clients { bufnr = 0 }) do
+    client_names[#client_names + 1] = client.name
+  end
+  local clients_str = #client_names > 0 and table.concat(client_names, ', ') or ''
+  local counts = { 0, 0, 0, 0 }
+  for _, d in ipairs(diag_get(0)) do
     counts[d.severity] = counts[d.severity] + 1
   end
-  local parts = {}
-  if counts[vim.diagnostic.severity.ERROR] > 0 then
-    table.insert(parts, 'E:' .. counts[vim.diagnostic.severity.ERROR])
+  local diag_parts = {}
+  if counts[severity.ERROR] > 0 then
+    diag_parts[#diag_parts + 1] = 'E:' .. counts[severity.ERROR]
   end
-  if counts[vim.diagnostic.severity.WARN] > 0 then
-    table.insert(parts, 'W:' .. counts[vim.diagnostic.severity.WARN])
+  if counts[severity.WARN] > 0 then
+    diag_parts[#diag_parts + 1] = 'W:' .. counts[severity.WARN]
   end
-  if counts[vim.diagnostic.severity.INFO] > 0 then
-    table.insert(parts, 'I:' .. counts[vim.diagnostic.severity.INFO])
+  if counts[severity.INFO] > 0 then
+    diag_parts[#diag_parts + 1] = 'I:' .. counts[severity.INFO]
   end
-  if counts[vim.diagnostic.severity.HINT] > 0 then
-    table.insert(parts, 'H:' .. counts[vim.diagnostic.severity.HINT])
+  if counts[severity.HINT] > 0 then
+    diag_parts[#diag_parts + 1] = 'H:' .. counts[severity.HINT]
   end
-  if #parts == 0 then
-    return ''
+  local diag_str = #diag_parts > 0 and table.concat(diag_parts, ' ') or ''
+  local sep = ' | '
+  local parts = {
+    '%t',
+    '[%M%R%H%W%Y]%q',
+  }
+  if vim.b.gitsigns_head and vim.b.gitsigns_head ~= '' then
+    local git_section = vim.b.gitsigns_head
+    if vim.b.gitsigns_status and vim.b.gitsigns_status ~= '' then
+      git_section = git_section .. ' ' .. vim.b.gitsigns_status
+    end
+    parts[#parts + 1] = git_section
+  elseif vim.b.gitsigns_status and vim.b.gitsigns_status ~= '' then
+    parts[#parts + 1] = vim.b.gitsigns_status
   end
-  return table.concat(parts, ' ')
+  parts[#parts + 1] = '%=' -- right side starts here
+  if diag_str ~= '' then
+    parts[#parts + 1] = diag_str
+  end
+  if clients_str ~= '' then
+    parts[#parts + 1] = clients_str
+  end
+  parts[#parts + 1] = '%l/%L:%c'
+  return ' ' .. table.concat(parts, sep) .. ' '
 end
 
--- can change colors off head, status, and diagnostics
-vim.o.statusline = table.concat {
-  '%{get(b:,"gitsigns_head","")}: ', -- head
-  '%{get(b:,"gitsigns_status","")} ', -- status
-  '%f %m%r%h%w%q ', -- file info
-  '%=', -- split left = right sides
-  '%{v:lua.diagnostic_summary()} ', -- diagnostics
-  '[%l:%v]', -- cursor pos
-}
+vim.o.statusline = '%!v:lua.statusline()'

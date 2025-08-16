@@ -1,10 +1,8 @@
--- auto update?
-
 require('lazy').setup {
   spec = { require 'plugins' },
   install = { colorscheme = { 'kanagawa' } },
-  -- ui = { custom_keys = { can look at keybings by pressing ? } },
   change_detection = { notify = false },
+  checker = { enabled = true, frequency = 604800 },
 }
 
 -- opts --keycaps
@@ -80,3 +78,25 @@ require('lazy').setup {
 -- i did some C stuff as well config it, and maybe debugger?
 -- look into lsp stuff and debuggers for all langauges
 -- ensure build tool fmting/lsp is installed
+-- need pleanary.nvim for harpoon, do i config it?
+--
+-- look at my phone for notes, do i still need harpoon?
+-- make marks look like harpoon?
+-- tabs, marks, and bnext, b#/<C-^>, jump list <C-o><C-i>
+
+-- custom marks
+-- " last exited curr buffer
+-- [ beginning of previsioly changed or yanked line
+-- ] end of previsioly changed or yanked line
+-- ^ last pos in insert mode
+-- . last change in curr buffer
+-- </> visual selection
+-- 0 laast file edited
+-- 1-9 last opened
+-- also can use ' or `
+-- buffers
+-- b2/b3
+-- b#
+-- do i use tabs?
+--or just use harpoon
+--mason auto updates
