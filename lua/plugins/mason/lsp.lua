@@ -149,3 +149,42 @@ return {
 -- docker
 -- 'dockerls',
 -- 'hadolint',
+--
+-- and other stuff!!!!
+--   -- LSPs
+--   "rust_analyzer", -- Rust
+--   "html",          -- HTML
+--   "cssls",         -- CSS
+--   "tsserver",      -- TypeScript/JavaScript
+--   "jsonls",        -- JSON
+--   "yamlls",        -- YAML
+--   "dockerls",      -- Docker
+--   "bashls",        -- Shell scripts
+--   "marksman",      -- Markdown
+--   "lemminx",       -- XML
+--   "sqlls",         -- SQL
+--   "pyright",       -- Python
+--   "eslint",        -- ESLint LSP (JavaScript/TypeScript)
+--   "graphql",       -- GraphQL
+--   "vimls",         -- Vimscript
+--
+--   -- Formatters
+--   "prettier",      -- Web (HTML, CSS, etc.)
+--   "shfmt",         -- Shell
+--   "rustfmt",       -- Rust
+--   "black",         -- Python
+--   "isort",         -- Python
+--   "sql-formatter", -- SQL
+--   "yamlfmt",       -- YAML
+--   "markdownlint",  -- Markdown
+--
+--   -- Linters
+--   "shellcheck",    -- Shell
+--   "luacheck",      -- Lua
+--   "flake8",        -- Python
+--   "eslint_d",      -- JavaScript/TypeScript
+--   "markdownlint",  -- Markdown
+--
+--   -- Debuggers (DAP)
+--   "delve",         -- Go
+--   "codelldb",      -- Rust, C/C++
