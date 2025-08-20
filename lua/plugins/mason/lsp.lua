@@ -1,6 +1,6 @@
--- auto update?
-local function config() -- can include event
+local function config()
   require('config.autocmds').lsp()
+
   vim.diagnostic.config {
     severity_sort = true,
     signs = {
@@ -20,6 +20,7 @@ local function config() -- can include event
     },
   }
 
+  -- auto update?
   -- config the stuff i install later?
   -- 	-- can change: cmd (server start), filetype, capabilites, settings
   -- 	-- opts = {
@@ -126,7 +127,10 @@ return {
 -- lookm more into stuff i added
 
 --LSP
--- ast-grep, autotools-ls, bacon_ls, bashls, basicsls, cspell, diagnosticsls, dockercompose langauge server, docker-lagnuage-server, dockerls, dprint, efm, emmylua_ls, golangci-lint-langserver, grammerly-langugageserver, harper-ls, ltex-ls, systemd-ls,, termux-ls, textlsp, tombi(is mine better or both)
+-- ast-grep, autotools-ls, bacon_ls, bashls, basicsls, cspell, diagnosticsls, dockercompose langauge server,
+-- docker-lagnuage-server, dockerls, dprint, efm,
+-- emmylua_ls, golangci-lint-langserver,
+-- grammerly-langugageserver, harper-ls, ltex-ls, systemd-ls,, termux-ls, textlsp, tombi(is mine better or both)
 
 -- c,
 -- debugger (more for C, C++, Rust)
@@ -134,10 +138,13 @@ return {
 -- mock and local lua
 
 -- linter
--- ast-grep, codespell, commitlint, cpplint, cspell, dotenv-linter, gitlint, gospel, hadolint, misspell, revive, selene, shellcheck, shellharden, semgrep, staticcheck, systemdlint, textlint, typos
+-- ast-grep, codespell, commitlint, cpplint, cspell, dotenv-linter, gitlint,
+-- gospel, hadolint, misspell, revive, selene, shellcheck,
+-- shellharden, semgrep, staticcheck, systemdlint, textlint, typos
 
 -- formatter
---beautysh, crlfmt, gci, goimports-reviser, golines, go modify tages, gotests, luaformatter, ocaml_format, shellharden, shfmt, tombi, yamlfix, yamlfmt
+--beautysh, crlfmt, gci, goimports-reviser, golines, go modify tages,
+--gotests, luaformatter, ocaml_format, shellharden, shfmt, tombi, yamlfix, yamlfmt
 
 -- docker
 -- 'dockerls',

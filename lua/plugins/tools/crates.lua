@@ -3,34 +3,22 @@ return {
   event = { 'BufRead Cargo.toml' },
   tag = 'stable',
   config = function()
-    require('crates').setup {}
+    require('crates').setup {
+      lsp = {
+        enabled = true,
+        actions = true,
+        completion = true,
+        hover = true,
+      },
+      -- i use blink, can i use it with this
+      -- completion = {
+      --   cmp = { enabled = true },
+      -- },
+    }
   end,
 }
 
--- require("crates").setup {
---     ...
---     lsp = {
---         enabled = true,
---         on_attach = function(client, bufnr)
---             -- the same on_attach function as for your other language servers
---             -- can be ommited if you're using the `LspAttach` autocmd
---         end,
---         actions = true,
---         completion = true,
---         hover = true,
---     },
--- }
-
--- require("crates").setup {
---     ...
---     completion = {
---         ...
---         cmp = {
---             enabled = true,
---         },
---     },
--- }
-
+-- do this in teh other file
 -- require("cmp").setup {
 --     ...
 --     sources = {
@@ -41,6 +29,7 @@ return {
 --         { name = "crates" },
 --     },
 -- }
+
 -- vim.api.nvim_create_autocmd("BufRead", {
 --     group = vim.api.nvim_create_augroup("CmpSourceCargo", { clear = true }),
 --     pattern = "Cargo.toml",
@@ -48,6 +37,7 @@ return {
 --         cmp.setup.buffer({ sources = { { name = "crates" } } })
 --     end,
 -- })
+
 -- require("crates").setup {
 --     ...
 --     completion = {

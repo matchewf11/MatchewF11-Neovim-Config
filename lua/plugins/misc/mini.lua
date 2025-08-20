@@ -5,7 +5,7 @@ return {
   version = false,
   event = 'VeryLazy',
   config = function()
-    require('mini.cursorword').setup { delay = 0 }
+    -- require('mini.cursorword').setup { delay = 0 }
     -- mini.ai 	Extend and create a/i textobjects
     -- mini.align 	Align text interactivel
     -- mini.comment 	Comment lines

@@ -27,7 +27,6 @@ require('lazy').setup {
 --   "dockerls",      -- Docker
 --   "bashls",        -- Shell scripts
 --   "marksman",      -- Markdown
---   "taplo",         -- TOML
 --   "lemminx",       -- XML
 --   "sqlls",         -- SQL
 --   "pyright",       -- Python
@@ -61,7 +60,6 @@ require('lazy').setup {
 
 --make sure to look at all plugins keymaps to write down
 -- rellook at all config specs for plugins (clean and look for errs)
--- copys notes over from mac
 -- config other stuff
 -- reasearch nvim basic keymaps and commands
 -- config firefox as well
@@ -69,17 +67,17 @@ require('lazy').setup {
 -- :help
 -- conifg web-devicons
 -- get rid of defualt config if i dont change (get rid of config options to make simple)
--- do a want a winbar with lualine?
---
+
 -- use harpoon, windows(buffers) or tabs? (or either), tabline(lualine as well)?
---
+
 -- lua-dev.nvim
 -- nlua.nvim (debugger)
+
 -- i did some C stuff as well config it, and maybe debugger?
 -- look into lsp stuff and debuggers for all langauges
 -- ensure build tool fmting/lsp is installed
 -- need pleanary.nvim for harpoon, do i config it?
---
+
 -- look at my phone for notes, do i still need harpoon?
 -- make marks look like harpoon?
 -- tabs, marks, and bnext, b#/<C-^>, jump list <C-o><C-i>
