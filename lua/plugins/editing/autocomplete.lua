@@ -1,4 +1,3 @@
--- Autocompletion
 return { --config later
 
   -- copying kickstart config
