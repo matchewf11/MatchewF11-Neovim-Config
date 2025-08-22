@@ -1,59 +1,38 @@
+local function set_maps(map_tbl)
+  for _, val in ipairs(map_tbl) do
+    vim.keymap.set(val[4] or 'n', val[1], val[2], { desc = val[3] })
+  end
+end
+
 local M = {}
 
 function M.global()
-  vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>') -- clear hl's w/ esc
-  vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
-  -- may not work
-  vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-
-  vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-  vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-  vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-  vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
-  vim.keymap.set('n', '<C-S-h>', '<C-w>H', { desc = 'Move window to the left' })
-  vim.keymap.set('n', '<C-S-l>', '<C-w>L', { desc = 'Move window to the right' })
-  vim.keymap.set('n', '<C-S-j>', '<C-w>J', { desc = 'Move window to the lower' })
-  vim.keymap.set('n', '<C-S-k>', '<C-w>K', { desc = 'Move window to the upper' })
+  set_maps {
+    { '<Esc>', '<cmd>nohlsearch<CR>', 'Clear Highlights' },
+    { '<C-h>', '<C-w><C-h>', 'Move focus to the left window' },
+    { '<C-l>', '<C-w><C-l>', 'Move focus to the right window' },
+    { '<C-j>', '<C-w><C-j>', 'Move focus to the lower window' },
+    { '<C-k>', '<C-w><C-k>', 'Move focus to the upper window' },
+    { '<C-S-h>', '<C-w>H', 'Move window to the left' },
+    { '<C-S-l>', '<C-w>L', 'Move window to the right' },
+    { '<C-S-j>', '<C-w>J', 'Move window to the lower' },
+    { '<C-S-k>', '<C-w>K', 'Move window to the upper' },
+    { '<Esc><Esc>', '<C-\\><C-n>', 'Exit terminal mode', 't' },
+    { '<leader>q', vim.diagnostic.setloclist, 'Open diagnostic [Q]uickfix list' },
+  }
 end
 
--- which-key
--- esc to exit
--- backspace to go back
--- <C-u/d> to go up and down
-
--- oil.nvim keymaps
---keymaps = {
---     ["g?"] = { "actions.show_help", mode = "n" },
---     ["<CR>"] = "actions.select",
---     ["<C-s>"] = { "actions.select", opts = { vertical = true } },
---     ["<C-h>"] = { "actions.select", opts = { horizontal = true } },
---     ["<C-t>"] = { "actions.select", opts = { tab = true } },
---     ["<C-p>"] = "actions.preview",
---     ["<C-c>"] = { "actions.close", mode = "n" },
---     ["<C-l>"] = "actions.refresh",
---     ["-"] = { "actions.parent", mode = "n" },
---     ["_"] = { "actions.open_cwd", mode = "n" },
---     ["`"] = { "actions.cd", mode = "n" },
---     ["~"] = { "actions.cd", opts = { scope = "tab" }, mode = "n" },
---     ["gs"] = { "actions.change_sort", mode = "n" },
---     ["gx"] = "actions.open_external",
---     ["g."] = { "actions.toggle_hidden", mode = "n" },
---     ["g\\"] = { "actions.toggle_trash", mode = "n" },
---},
-
 function M.lsp()
-  -- lsp keymaps
-  -- map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
-  -- map('gra', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
-  -- map('grr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-  -- map('gri', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-  -- map('grd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-  -- map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-  -- map('gO', require('telescope.builtin').lsp_document_symbols, 'Open Document Symbols')
-  -- map('gW', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Open Workspace Symbols')
-  -- map('grt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
+  set_maps {
+    { 'grn', vim.lsp.buf.rename, 're[n]ame' },
+    { 'gra', vim.lsp.buf.code_action, 'code [a]ction', { 'n', 'x' } },
+    { 'gri', vim.lsp.buf.implementation, '[i]mplementation' },
+    { 'grr', vim.lsp.buf.references, '[r]efrences' },
+    { 'grt', vim.lsp.buf.type_definition, '[t]ype definition' },
+    { 'grD', vim.lsp.buf.declaration, '[D]eclaration' },
+    { 'grd', vim.lsp.buf.definition, '[d]efinitions' },
+    { 'gO', vim.lsp.buf.document_symbol, 'doc symbol' },
+  }
 end
 
 return M
-
--- look at all plugins keymaps

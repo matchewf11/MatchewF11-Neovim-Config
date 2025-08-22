@@ -58,3 +58,4 @@ require('lazy').setup {
 -- do i use tabs?
 --or just use harpoon
 --mason auto updates
+--write down all plugin keympas
